@@ -3,7 +3,7 @@
     padding: 0;
 }
 body {
- background: url(../img/rovert.jpg);
+ background: url(../imge/rovert.jpg);
  background-size: cover;
  background-repeat: no-repeat;
  background-position: center;
@@ -43,18 +43,18 @@ h1{
 
 
 .img_planos {
-    background-image: url(../img/img_modelado.jpg);
+    background-image: url(../imge/img_modelado.jpg);
 }
 
 .img_modelos {
-    background-image: url(../img/img_calculos.jpg);
+    background-image: url(../imge/img_calculos.jpg);
 }
 
 .img_calculos {
-    background-image: url(../img/brazo.png);
+    background-image: url(../imge/brazo.png);
 }
 .img_brazo{
-    background-image: url(../img/bugy.png);
+    background-image: url(../imge/bugy.png);
 }
 
 
