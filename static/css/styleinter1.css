@@ -1,0 +1,174 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+ background: url(../img/rovert.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-position: center;
+ background-attachment: fixed;
+ background-size: 100% 100%;
+ font-family: sans-serif;
+}
+h1{
+ color: #e7a2a2;
+}
+.container {
+    display: flex;
+    padding: 50px;
+    justify-content: space-between;
+    background-attachment: fixed;
+}
+
+.container div:hover{
+    box-shadow: 0 20px 20px #000;
+    transition: 0.3s;
+}
+
+.img_planos, .img_modelos, .img_calculos, .img_brazo {
+    width: 300px;
+    height: 600px;
+    color: rgb(238, 242, 243);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; /* Ajuste para que la imagen ocupe completamente el contenedor */
+    background-position: center; 
+    
+}
+
+
+.img_planos {
+    background-image: url(../img/img_modelado.jpg);
+}
+
+.img_modelos {
+    background-image: url(../img/img_calculos.jpg);
+}
+
+.img_calculos {
+    background-image: url(../img/brazo.png);
+}
+.img_brazo{
+    background-image: url(../img/bugy.png);
+}
+
+
+header img {
+    height: 100px;
+    width: 100px;
+   
+}
+
+nav lu{
+    float:right;
+    margin: 20px;
+    margin-top: 15px;
+}
+nav lu li{
+    display: inline-block;
+    margin-right: 30px;
+
+}
+nav lu li a{
+    color: aliceblue;
+    text-decoration: none;
+
+}
+nav lu li a:hover{
+    color: rgb(13, 15, 16);
+    transition: 2s;
+}
+.boton {
+    padding: 10px 20px;
+    background-color: #262926;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.boton:hover {
+    background-color: #d79a4a;
+}
+.info {
+    display: none;
+    padding: 10px;
+    width: 280px; /* Modificado para ocupar el ancho del contenedor principal */
+    max-width: 280px; /* Establecido un ancho máximo para evitar que sea demasiado grande */
+    color: #000;
+    background: linear-gradient(135deg, #ff8c00, #1a237e);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+}
+
+
+.img_planos:hover .info,
+.img_modelos:hover .info,
+.img_calculos:hover .info,
+.img_brazo:hover .info {
+    display: block;
+}
+/* Estilos generales del footer */
+.pie-pagina {
+    width: 100%;
+    background-color: #151515;
+}
+
+/* Estilos del primer grupo en el footer */
+
+.edit {
+    border-top: 1px solid #292828;
+    margin-top: 1em;
+    padding-top: 2em;
+    display: flex; /* Añadido: para usar el modelo de caja flexible (flexbox) */
+    justify-content: center; /* Centra horizontalmente en el eje principal */
+    align-items: center; /* Centra verticalmente en el eje secundario */
+    text-align: center;
+}
+
+.edit p {
+    color: #616263;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .info {
+        max-width: 100%; /* Ajustado para ocupar el 100% del ancho en pantallas más pequeñas */
+    }
+}
+
+/* Media query para tamaños de pantalla más pequeños */
+@media (max-width: 768px) {
+    .pie-pagina .grupo-1 {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajuste para pantallas más pequeñas */
+        grid-gap: 10px; /* Ajuste del espacio entre columnas */
+    }
+
+    .pie-pagina .grupo-1 .box h2 {
+        font-size: 16px; /* Ajuste del tamaño de la fuente para pantallas más pequeñas */
+    }
+}
+
+
+/* Media query para ajustar el diseño en pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Cambiado a dirección de columna en pantallas más pequeñas */
+        align-items: center; /* Centrar en el eje transversal */
+    }
+
+    .img_planos, .img_modelos, .img_calculos {
+        max-width: none; /* Eliminado el ancho máximo para ocupar el ancho completo en pantallas más pequeñas */
+    }
+}

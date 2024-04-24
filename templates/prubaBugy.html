@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Brazo</title>
+    <link rel="stylesheet" href="../static/css/stylejoybrazo.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="background">
+        <div class="container2">
+            
+        </div>
+        
+        <div class="buttons_slider">
+            <div class="joysticks">
+                <div class="column">
+                    <div class="joystick">
+                        <label for="Grado1">Grado 1:</label>
+                        <input type="range" class="slider" id="grado1" min="0" max="360" value="0">
+                        <input type="number" id="angulo1" name="angulo1" min="0" max="360" value="0">                        
+                    </div>
+                    <div class="joystick">
+                        <label for="Grado2">Grado 2:</label>
+                        <input type="range" class="slider" id="grado2" min="0" max="360" value="0">
+                        <input type="number" id="angulo2" name="angulo2" min="0" max="360" value="0">
+                    </div>
+                    <div class="joystick">
+                        <label for="Grado3">Grado 3:</label>
+                        <input type="range" class="slider" id="grado3" min="0" max="360" value="0">
+                        <input type="number" id="angulo3" name="angulo3" min="0" max="360" value="0">
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="joystick">
+                        <label for="Grado4">Grado 4:</label>
+                        <input type="range" class="slider" id="grado4" min="0" max="360" value="0">
+                        <input type="number" id="angulo4" name="angulo4" min="0" max="360" value="0">
+                    </div>
+                    <div class="joystick">
+                        <label for="Grado5">Grado5:</label>
+                        <input type="range" class="slider" id="grado5" min="0" max="360" value="0">
+                        <input type="number" id="angulo5" name="angulo5" min="0" max="360" value="0">
+                    </div>
+                </div>
+                <p></p>
+
+            </div>
+            <p></p>
+            <div class="joysticks">
+                <div class="column">
+                    <div class="joystick">
+                        <label for="VELOCIDAD1">Velocidad1:</label>
+                        <input type="range" class="slider" id="VELOCIDAD1" min="0" max="100" value="50">
+                        <input type="number" id="vel1" name="vel1" min="0" max="100" value="50">
+                    </div>
+                    <div class="joystick">
+                        <label for="VELOCIDAD2">Velocidad2:</label>
+                        <input type="range" class="slider" id="VELOCIDAD2" min="0" max="100" value="50">
+                        <input type="number" id="vel2" name="vel2" min="0" max="100" value="50">
+                    </div>
+                    <div class="joystick">
+                        <label for="VELOCIDAD3">Velocidad3:</label>
+                        <input type="range" class="slider" id="VELOCIDAD3" min="0" max="100" value="50">
+                        <input type="number" id="vel3" name="vel3" min="0" max="100" value="50">
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="joystick">
+                        <label for="VELOCIDAD4">Velocidad4:</label>
+                        <input type="range" class="slider" id="VELOCIDAD4" min="0" max="100" value="50">
+                        <input type="number" id="vel4" name="vel4" min="0" max="100" value="50">
+                    </div>
+                    <div class="joystick">
+                        <label for="VELOCIDAD5">Velocidad5:</label>
+                        <input type="range" class="slider" id="VELOCIDAD5" min="0" max="100" value="50">
+                        <input type="number" id="vel5" name="vel5" min="0" max="100" value="50">
+                    </div>
+                 
+                </div>
+                <p></p>
+
+            </div>
+            <div class="center">
+                <div class="joystick">
+                    <label for="referen">Referencia:</label>
+                    <input type="range" class="slider" id="referen" min="0" max="100" value="0">
+                    <input type="number" id="Referencia" name="Referencia" min="0" max="100" value="0">
+                </div>
+            </div>
+            
+            <div class="joystickspos">
+                <div class="columnpos">
+                    <div class="joystickpos">
+                        <label for="POSICIONX">Posicion X:</label>
+                        <input type="range" class="sliderpos" id="POSICIONX" min="0" max="100" value="50">
+                        <input type="number" id="posx" name="posx" min="0" max="100" value="50">
+                    </div>
+                </div>
+                <div class="columnpos">
+                    <div class="joystickpos">
+                        <label for="POSICIONY">Posicion Y:</label>
+                        <input type="range" class="sliderpos" id="POSICIONY" min="0" max="100" value="50">
+                        <input type="number" id="posy" name="posy" min="0" max="100" value="50">
+                    </div>
+                </div>
+                <div class="columnpos">
+                    <div class="joystickpos">
+                        <label for="POSICIONZ">Posicion Z:</label>
+                        <input type="range" class="sliderpos" id=POSICIONZ" min="0" max="100" value="50">
+                        <input type="number" id="posz" name="poz" min="0" max="100" value="50">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="cont_menu" id="contMenu">
+            <a href="../templates/index.html"><button class="menu_button" id="homeButton"><img src="../static/img/casa.jpg" alt="Home"></button></a>
+            <button class="menu_button" id="locationButton"><img src="../static/img/ubicacion.jpg" alt="Location"></button>
+            <button class="menu_button" id="cameraButton"><img src="../static/img/camara.jpg" alt="Camera"></button>
+            <a href="../templates/brazo.html"><button class="menu_button" id="carButton"><img src="../static/img/astro2.jpg" alt="Car"></button></a>
+        </div>
+    </div>
+    <script src="../static/js/scriptjoybrazo.js"></script>
+</body>
+</html>

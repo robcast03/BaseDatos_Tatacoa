@@ -1,0 +1,317 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor de la imagen de fondo */
+.background {
+    background-image: url('../imge/fondoneutro.jpg'); /* Ruta de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.cont_video {
+   
+    position: absolute;
+    bottom: 115px;
+    left: 30px;
+    width: 100%; /* O ajusta el ancho según tus necesidades */
+
+width: 465px;
+height: 480px;
+z-index: 999;
+margin-top: 10px;
+margin-left: 10px;
+border-radius: 15px; /* Redondear los bordes */
+overflow: hidden; /* Para que la imagen redondeada no se desborde */
+object-fit: cover; /* Ajustar la imagen para cubrir el contenedor */
+border-radius: 15px; /* Redondear los bordes de la imagen */
+padding: 10px;
+    background-color: rgba(37, 36, 36, 0.89);
+    border: 1px solid rgba(63, 63, 63);
+    border-radius: 15px;
+}
+
+.cont_video .video {
+width: 100%;
+height: 100%;
+}
+
+
+@media screen and (max-width: 600px) {
+.cont_video {
+    width: 100%; /* Ajusta el ancho del video al 100% en dispositivos móviles */
+    margin: 0; /* Elimina el margen para centrar en dispositivos móviles */
+}
+}
+.container2{
+    display: flex;  
+    margin-top: 40px;  
+}
+
+.cont_menu {
+    background-color: rgba(37, 36, 36, 0.89);
+    border: 1px solid rgba(63, 63, 63);
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 530px;
+    margin-left: 20px;
+    margin-right: auto;
+    width: 1260px;
+    height: 50px;
+    position: absolute;
+    z-index: 999;
+}
+/* Estilo básico para los botones del menú */
+
+/* Estilo para cambiar la opacidad al pasar el cursor sobre los botones */
+.menu_button:hover img {
+    opacity: 1; /* Hace que las imágenes sean más brillantes al pasar el cursor sobre ellas */
+}
+
+.menu_button {
+    
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%; /* Hace que el botón sea redondo */
+    margin: 5px; /* Espacio entre botones */
+    bottom: 8px;
+    left: 500px; /* Espacio entre botones */
+    cursor: pointer;
+    overflow: hidden; /* Para que la imagen no se desborde del círculo */
+    position: relative; /* Posicionamiento relativo para alinear la imagen */
+}
+
+.menu_button img {
+    width: 100%; /* Ajusta el ancho de la imagen al 100% del botón */
+    height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
+    border-radius: 50%; /* Hace que la imagen sea redonda */
+    position: absolute; /* Posicionamiento absoluto para alinear la imagen */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Centra la imagen */
+    opacity: 0.5; /* Hace que las imágenes sean más brillantes al pasar el cursor sobre ellas */
+}
+
+.menu_button:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Cambia el color de fondo al pasar el cursor */
+}
+.menu_button:hover img {
+    filter: brightness(0.8); /* Reduce el brillo de la imagen al pasar el cursor */
+}
+/* slider*/
+
+.buttons_slider {
+    position: absolute;
+    margin-bottom: 50px;
+    bottom: 255px;
+    left: 580px;
+    width: 720px;
+    height: 300px;
+    
+    padding: 10px;
+    
+    
+}
+
+.joysticks {
+    display: flex;
+    padding: 10px;
+    background-color: rgba(37, 36, 36, 0.89);
+    border: 1px solid rgba(63, 63, 63);
+    border-radius: 15px;
+    position: relative; /* Añadimos posición relativa para que el z-index funcione */
+    z-index: 0; /* Aseguramos que esté detrás de otros elementos */
+}
+.joystickspos {
+    margin-top: 50px;
+    display: flex;
+    padding: 10px;
+    background-color: rgba(37, 36, 36, 0.89);
+    border: 1px solid rgba(63, 63, 63);
+    border-radius: 15px;
+    position: relative; /* Añadimos posición relativa para que el z-index funcione */
+    z-index: 0; /* Aseguramos que esté detrás de otros elementos */
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.column + .column {
+    margin-left: 20px; /* Espacio entre columnas */
+}
+.columnpos {
+    display: flex;
+    flex-direction: column;
+}
+
+.columnpos + .columnpos {
+    margin-left: 20px; /* Espacio entre columnas */
+}
+
+.center {
+    display: flex; /* Necesario para usar flex-direction */
+    flex-direction: column; /* Cambiar la dirección de flexbox a column */
+    margin-top: 10px; /* Espacio entre columnas y el slider de referencia */
+    align-items: center; /* Centra el contenido horizontalmente */
+}
+
+.Posicion {
+    display: flex;
+    flex-direction: column;
+}
+
+.Posicion + .Posicion {
+    margin-left: 20px; /* Espacio entre columnas */
+}
+
+.joystick {
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos */
+    margin-top: 25px; /* Agrega margen superior de 10px */
+}
+.joystickpos {
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos */
+    margin-top: 25px; /* Agrega margen superior de 10px */
+}
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 200px; /* Ancho del slider */
+    height: 15px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #d3d3d3, #ffffff);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.joystick input[type="number"] {
+    color: black;
+    background-color: #ffffff;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 3px 5px;
+    width: 40px;
+    font-size: 10px;
+}
+
+.joystick label {
+    color: white; /* Cambia el color del texto a blanco */
+}
+
+.joystick p {
+    color: rgb(255, 255, 255);
+}
+
+
+.joystick label {
+    color: white; /* Cambia el color del texto a blanco */
+}
+
+.joystick p {
+    color: rgb(255, 255, 255);
+}
+
+
+
+.sliderpos {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 80px; /* Ancho del slider */
+    height: 15px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #d3d3d3, #ffffff);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.sliderpos:hover {
+    opacity: 1;
+}
+
+.sliderpos::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.sliderpos::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.joystickpos input[type="number"] {
+    color: black;
+    background-color: #ffffff;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 3px 5px;
+    width: 40px;
+    font-size: 10px;
+}
+
+.joystickpos label {
+    color: white; /* Cambia el color del texto a blanco */
+}
+
+.joystickpos p {
+    color: rgb(255, 255, 255);
+}
+
+
+.joystickpos label {
+    color: white; /* Cambia el color del texto a blanco */
+}
+
+.joystickpos p {
+    color: rgb(255, 255, 255);
+}

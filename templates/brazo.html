@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Brazo</title>
+    <link rel="stylesheet" href="../static/css/stylebrazo.css">
+</head>
+<body>
+    <div class="background">
+        <div class="container1">
+            <div class="digital-twin">
+                <div class="gemelo-content" contenteditable="true">
+                    <!-- Contenido del gemelo digital -->
+                    <iframe src="ModeloBrazo.html" width="380" height="380" frameborder="0"></iframe>
+                </div>
+                
+            </div>
+            <div class="buttons">
+                <div class="dashboard">
+                    <div class="speed-box">
+                        <div class="speedometer" id="motor1">
+                            <div class="speedometer__progress blue"></div>
+                            <div class="speedometer__text">0 km/h</div>
+                        </div>
+                    </div>
+                    <div class="speed-box">
+                        <div class="speedometer" id="motor2">
+                            <div class="speedometer__progress red"></div>
+                            <div class="speedometer__text">0 km/h</div>
+                        </div>
+                    </div>
+                    <div class="speed-box">
+                        <div class="speedometer" id="motor3">
+                            <div class="speedometer__progress green"></div>
+                            <div class="speedometer__text">0 km/h</div>
+                        </div>
+                    </div>
+                    <!-- Repite lo siguiente para los demás cuadros de velocidad -->
+                    <div class="speed-box">
+                        <div class="speedometer" id="motor4">
+                            <div class="speedometer__progress orange"></div>
+                            <div class="speedometer__text">0 km/h</div>
+                        </div>
+                    </div>
+                    <div class="speed-box">
+                        <div class="speedometer" id="motor5">
+                            <div class="speedometer__progress purple"></div>
+                            <div class="speedometer__text">0 km/h</div>
+                        </div>
+                    </div>
+                    <div class="speed-box">
+                        <div class="speedometer" id="motor6">
+                            <div class="speedometer__progress yellow"></div>
+                            <div class="speedometer__text">0 km/h</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+           
+            
+            <div class="container2">
+                <div class="angles">
+                    <div class="angle-box">
+                        <div class="warning-indicator" id="warning-indicator-joint1"></div>
+                        <div class="angle-meter" id="joint1">
+                            <div class="angle-meter__progress blue"></div>
+                            <div class="angle-meter__text">0°</div>
+                        </div>
+                    </div>
+                    <div class="angle-box">
+                        <div class="warning-indicator" id="warning-indicator-joint2"></div>
+                        <div class="angle-meter" id="joint2">
+                            <div class="angle-meter__progress red"></div>
+                            <div class="angle-meter__text">0°</div>
+                        </div>
+                    </div>
+                    <div class="angle-box">
+                        <div class="warning-indicator" id="warning-indicator-joint3"></div>
+                        <div class="angle-meter" id="joint3">
+                            <div class="angle-meter__progress blue"></div>
+                            <div class="angle-meter__text">0°</div>
+                        </div>
+                    </div>
+                    <div class="angle-box">
+                        <div class="warning-indicator" id="warning-indicator-joint4"></div>
+                        <div class="angle-meter" id="joint4">
+                            <div class="angle-meter__progress red"></div>
+                            <div class="angle-meter__text">0°</div>
+                        </div>
+                    </div>
+                    <div class="angle-box">
+                        <div class="warning-indicator" id="warning-indicator-joint5"></div>
+                        <div class="angle-meter" id="joint5">
+                            <div class="angle-meter__progress blue"></div>
+                            <div class="angle-meter__text">0°</div>
+                        </div>
+                    </div>
+                    <div class="angle-box">
+                        <div class="warning-indicator" id="warning-indicator-joint6"></div>
+                        <div class="angle-meter" id="joint6">
+                            <div class="angle-meter__progress red"></div>
+                            <div class="angle-meter__text">0°</div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="cont_video">
+                    <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/yhdL4jz74WM?si=YVWuJHsVBxJdQTIZ&autoplay=1&mute=1&loop=1&controls=0" 
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen></iframe>
+                </div>
+                
+                
+            </div>
+       
+        </div>
+        <div class="cont_menu" id="contMenu">
+            <a href="../templates/index.html"><button class="menu_button" id="homeButton"><img src="../static/img/casa.jpg" alt="Home"></button></a>
+            <button class="menu_button" id="locationButton"><img src="../static/img/ubicacion.jpg" alt="Location"></button>
+            <button class="menu_button" id="cameraButton"><img src="../static/img/camara.jpg" alt="Camera"></button>
+            <a href="../templates/Roverto.html"><button class="menu_button" id="carButton"><img src="../static/img/astro2.jpg" alt="Car"></button></a>
+        </div>
+    </div>
+    <script src="../static/js/scriptBrazo.js" type="module"></script>
+</body>
+</html>

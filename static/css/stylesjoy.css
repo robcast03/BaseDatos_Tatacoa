@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+    color: white; /* Color de texto blanco para todos los elementos */
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: monospace;
+    background-image: url(../imge/fondoneutro.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    overflow: hidden; /* Evitar la barra de desplazamiento vertical */
+}
+
+.row {
+    display: inline-flex;
+    clear: both;
+}
+
+.columnLateral {
+    float: left;
+    width: 15%;
+    min-width: 300px;
+}
+
+.columnCetral {
+    float: left;
+    width: 70%;
+    min-width: 300px;
+}
+
+/* Estilos para el primer joystick */
+#joyDiv {
+    width: 200px;
+    height: 200px;
+    margin: 50px;
+    border: 2px solid #555; /* Borde oscuro */
+    border-radius: 50px; /* Bordes redondeados */
+    background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%); /* Sombra blanca */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+/* Estilos para el segundo joystick */
+#joy2Div {
+    width: 200px;
+    height: 200px;
+    right: 50px;
+    border: 2px solid #555; /* Borde oscuro */
+    border-radius: 50px; /* Bordes redondeados */
+    background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%); /* Sombra blanca */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+/* Estilos para los labels de los inputs dentro de .input-container */
+.input-container label {
+    display: inline-block;
+    width: 100px; /* Ancho fijo para los labels */
+    margin-bottom: 5px;
+    color: rgb(255, 255, 255); /* Color de texto negro */
+    font-weight: bold; /* Texto en negrita */
+}
+
+.input-container input {
+    width: calc(100% - 110px); /* Ancho dinámico para los inputs */
+    color: rgb(0, 0, 0); /* Color de texto blanco */
+}
+
+/* Estilos para el contenedor del video */
+.cont_video {
+    width:800px;
+    height: 350px;
+    margin: 10px auto; /* Centrar horizontalmente */
+    background-color: rgba(0, 0, 0, 0.7); /* Color de fondo oscuro semi-transparente */
+    text-align: center;
+}
+
+.video {
+    width: 800px;
+    height: 350px;
+    margin: 0 auto; /* Centrar horizontalmente */
+}
+.button-container {
+    text-align: center; /* Centrar horizontalmente los botones */
+    padding: 30px;
+    margin-bottom: 5px; /* Espacio de 5px desde el borde inferior */
+    margin-left: 30px;
+    margin-right: 30px;
+    border: 2px solid #555; /* Borde oscuro */
+    border-radius: 50px; /* Bordes redondeados */
+    display: flex; /* Convertir el contenedor en un flex container */
+    justify-content: center; /* Centrar los elementos hijos horizontalmente */
+    align-items: center;
+}
+
+.button1, .button2 {
+    width: 100px;
+    height: 50px;
+    padding: 5px;
+    margin: 20px; /* Espacio entre los botones */
+    background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%); /* Sombra blanca */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+#slider-container {
+    text-align: center; /* Centrar horizontalmente el slider y el input */
+}
+
+#slider {
+    width: 50%;
+    margin: 20px;
+}
+
+#sliderValue{
+    color: black;
+    padding: 10px;
+    width: 100px;
+    height: 50px;
+    text-align: center  ;
+}
+#sliderValue input[type=number] {
+    justify-content: center;
+    margin-left: 10px; /* Espacio entre el texto y el input */
+}
+
+
+

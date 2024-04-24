@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roverto</title>
+    <link rel="stylesheet" href="../static/css/styleRoverto .css">  
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+</head>
+<body>
+
+    <div class="container1">
+        <div class="digital-twin">
+            <div class="gemelo-content" contenteditable="true">
+                <!-- Aquí puedes agregar contenido interactivo -->
+                <img src="../static/imge/rovert.gif" alt="GIF Interactivo">
+            </div>            
+        </div>
+
+        <div class="cont_gemelo" id="contGemelo">
+            <!-- Variables de arriba -->
+            <div class="top-sensors">
+                <!-- Variable 1: Temperatura -->
+                <p>
+                    <img src="../static/imge/3.png" alt="Temperature Icon">
+                    <span class="sensor-value" id="temperatureValue"></span>
+                    <span class="sensor-units">°C</span>
+                    <br>
+                    <span class="sensor-description">Temperature</span>
+                </p>
+                <!-- Variable 2: Presión -->
+                <p>
+                    <img src="../static/imge/2.png" alt="Pressure Icon">
+                    <span class="sensor-value" id="pressureValue"></span>
+                    <span class="sensor-units">PSI</span>
+                    <br>
+                    <span class="sensor-description">Type pressure</span>
+                </p>
+                <!-- Variable 3: red -->
+                <p>
+                    <img src="../static/imge/4.png" alt="Signal Icon">
+                    <span class="sensor-value" id="signalQuality"></span>
+                    <span class="sensor-units">%</span>
+                    <br>
+                    <span class="sensor-description">Red 2.4 GHz</span>
+                </p>
+                <!-- Variable 4: Humedad -->
+                <p>
+                    <img src="../static/imge/5.png" alt="Humidity Icon">
+                    <span class="sensor-value" id="humidityValue"></span>
+                    <span class="sensor-units">%</span>
+                    <br>
+                    <span class="sensor-description">Humidity Level</span>
+                </p>
+                  <!-- Variable 5: Inclinacion -->
+                <p>
+                    <img src="../static/imge/3.png" alt="Inclinacion Icon">
+                    <span class="sensor-value" id="inclinacionValue"></span>
+                    <span class="sensor-units">°</span>
+                    <br>
+                    <span class="sensor-description">Inclination</span>
+                </p>
+                <!-- Variable 6: Posicion -->
+                <p>
+                    <img src="../static/imge/2.png" alt="Position Icon">
+                    <span class="sensor-value" id="positionValue"></span>
+                    <span class="sensor-units">m</span>
+                    <br>
+                    <span class="sensor-description">Position</span>
+                </p>
+                
+            
+            </div>
+        </div>
+        <div class="buttons">
+            <!-- Barras para controlar los grados de las articulaciones -->
+            <div class="speedometer">
+                
+                <div class="speedometer__progress"></div>
+                <div class="speedometer__needle"></div>
+                <div class="speedometer__text">0 km/h</div>
+            </div>
+            <div class="temperature">
+                <div class="temperature__progress"></div>
+                <div class="temperature__needle"></div>
+                <div class="temperature__text">0 °C</div>
+            </div>
+        </div>
+
+     
+        <p>
+        <div class="container2">
+            <div class="cont_video">
+                <div class="cont_mapa">
+                    <div id="map"></div>>
+                </div> 
+            </div>
+            
+            <div class="cont_radar" id="contradar">
+                <img src="../static/imge/radar.png" alt="" class="mapa">
+            </div>
+            
+        </div></p>
+    <div class="cont_menu" id="contMenu">
+            <a href="dash.html"><button class="menu_button" id="homeButton"><img src="../static/imge/casa.jpg" alt="Home"></button></a>
+            <button class="menu_button" id="locationButton"><img src="../static/imge/ubicacion.jpg" alt="Location"></button>
+            <button class="menu_button" id="cameraButton"><img src="../static/imge/camara.jpg" alt="Camera"></button>
+            <a href="brazo.html"><button class="menu_button" id="carButton"><img src="../static/imge/astro2.jpg" alt="Car"></button></a>
+        </div>
+        
+
+    </div>
+   
+    
+    
+    <script>
+        function obtenerValores() {
+            // Suponiendo que los valores roll y pitch se obtienen de alguna fuente, como una base de datos, API, etc.
+            var rollValue = "{{ roll }}";
+            var pitchValue = "{{ pitch }}";
+    
+            // Convertir los valores a float usando parseFloat()
+            var rollFloat = parseFloat(rollValue);
+            var pitchFloat = parseFloat(pitchValue);
+            
+            // Retornar los valores convertidos
+            return { roll: rollFloat, pitch: pitchFloat };
+        }
+    
+        var valores = obtenerValores();
+        var valor1 = valores.roll;
+        var valor2 = valores.pitch;
+    
+        // Acceso a los valores de roll y pitch
+        console.log('Valor de roll:', valor1);
+        console.log('Valor de pitch:', valor2);
+
+    </script>
+    <script>
+        // Función para recargar la página
+        function recargarPagina() {
+            location.reload(); // Recarga la página actual
+        }
+    
+        // Llama a la función para recargar la página cada 5000 milisegundos
+        setInterval(recargarPagina, 10000);
+    </script>
+   
+    
+
+<script  src="../static/js/scriptRoverto.js" type="module" ></script>
+<!---<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMapa"></script>--->
+</body>
+</html>

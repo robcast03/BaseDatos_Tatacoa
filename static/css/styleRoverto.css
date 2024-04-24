@@ -1,0 +1,406 @@
+/*CONTENEDOR 1 -CAMARA, GPS, GEMELO, FONDO*/
+
+body{
+    background-image: url(../imge/fondoneutro.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:100vh;
+   
+
+}
+.container1 {
+    position: relative;
+    
+}
+#medidores{
+    position: absolute;
+    margin-top: 140px;
+    right: 45px;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    line-height: 200px;
+}
+#contenedor-lateral {
+    width: 150px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(37, 36, 36, 0.89); /* Color de fondo del contenedor con opacidad */
+    border: 1px solid rgba(63, 63, 63); /* Borde del contenedor */
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    z-index: 999; /* Asegura que esté por encima de otros elementos */
+}
+
+
+#contGemelo p {
+    margin: 5px 5px; /* Centra verticalmente y agrega margen en los lados */
+    width: 100%; /* Tamaño fijo del contenedor */
+    font-size: 9px; /* Tamaño de la fuente más pequeño */
+    padding: 5px; /* Espaciado interno */
+    border-radius: 8px; /* Redondea los bordes de los elementos */
+    border: 1px solid rgba(63, 63, 63, 0.5); /* Borde del contenedor con opacidad */
+    background-color: rgba(255, 255, 255, 0.1); /* Color de fondo con opacidad */
+    margin-left: 10px; /* Agrega un margen izquierdo de 60px */
+    
+}
+.cont_gemelo {
+    width: 100%;
+    height: 100px;
+    margin-left: 10px; /* Cambiar el valor según sea necesario */
+    margin-top: 10px;
+    border-radius: 15px; /* Redondear los bordes */
+    overflow: hidden; /* Para que la imagen redondeada no se desborde */
+    object-fit: cover; /* Ajustar la imagen para cubrir el contenedor */
+    border-radius: 15px; /* Redondear los bordes de la imagen */
+   
+}
+
+#contGemelo > div {
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+.top-sensors {
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bottom-sensors {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.cont_gemelo p {
+    
+    flex-direction: row; /* Alinear el contenido en columnas */
+    align-items: center; /* Centrar horizontalmente */
+    width: 250px; /* Ajusta el ancho del contenedor */
+    height: 70px; /* Ajusta el ancho del contenedor */
+}
+
+.cont_gemelo .sensor-value {
+    font-size: 18px; /* Ajusta el tamaño de la fuente de la descripción */
+    margin-left: 10px; /* Añade un espacio entre la imagen y el valor */
+    position: relative; /* Establece posición relativa */
+    top: -10px; /* Ajusta la posición vertical del valor */
+    left: 10px; /* Ajusta la posición horizontal del valor */
+}
+
+.cont_gemelo .sensor-description {
+    font-size: 14px; /* Ajusta el tamaño de la fuente de la descripción */
+    margin-bottom: 5px ;
+}
+
+.cont_gemelo img {
+    width: 30px; /* Ajusta el tamaño de la imagen */
+    height: 30px; /* Ajusta el tamaño de la imagen */
+    border-radius: 50%; /* Hace que la imagen sea redonda */
+    margin-bottom: 5px; /* Añade espacio entre la imagen y el texto */
+}
+
+
+
+
+.cont_gemelo .sensor-units {
+    margin-right: 3px;
+    font-size: 12px; /* Ajusta el tamaño de la fuente de la descripción */
+    margin-left: 10px; /* Añade un espacio entre la imagen y el valor */
+    position: relative; /* Establece posición relativa */
+    top: -10px; /* Ajusta la posición vertical del valor */
+    left: 10px; /* Ajusta la posición horizontal del valor */
+}
+
+
+
+.cont_radar {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(37, 36, 36, 0.89); /* Color de fondo del recuadro con opacidad */
+    border: 1px solid rgba(63, 63, 63); /* Borde del recuadro */
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    
+    margin-right: 5px; /* Espaciado izquierdo ajustado */
+
+    width: 390px; /* Ancho del recuadro ajustado */
+    height: 390px; /* Altura del recuadro ajustada */
+    z-index: 999;
+    background-color: rgba(66, 65, 65, 0.349); /* Color de fondo del contenedor con opacidad */
+    /* Resto de estilos */
+       /* Resto de estilos */
+       position: absolute;
+       right: 150px;
+       z-index: 999;
+}
+
+
+   /*CONTENEDOR ANGULOS DE LAS JUNTURAS*/
+  
+  
+
+.sensor-container {
+    display: flex;
+    align-items: center;
+    width: 90px; /* Ancho deseado para cada cuadro de sensor */
+}
+.sensor-value img {
+    width: 20px; /* Ajusta el tamaño de la imagen */
+    height: 20px; /* Ajusta el tamaño de la imagen */
+    border-radius: 50%; /* Hace que la imagen sea redonda */
+    margin-left: 2px;
+}
+
+.sensor-units {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-right: 2px;
+}
+
+
+
+#presionValor,
+#temperaturaValor,
+#vientoValor {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff; /* Color dorado para resaltar los valores */
+}
+
+
+
+
+
+/*GEMELO DIGITAL*/
+.digital-twin {
+    background-color: rgba(37, 36, 36, 0.89); /* Color de fondo del recuadro con opacidad */
+    border: 1px solid rgba(63, 63, 63); /* Borde del recuadro */
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    margin-top: 10px; /* Espaciado superior aumentado */
+    margin-left: 20px; /* Espaciado izquierdo ajustado */
+    width: 380px; /* Ancho del recuadro ajustado */
+    height: 530px; /* Altura del recuadro ajustada */
+}
+
+.digital-twin  .gemelo-content img {
+    opacity: 1; /* Asegura que la imagen no tenga opacidad */
+}
+
+
+
+.digital-twin h2 {
+    font-size: 16px; /* Tamaño de la fuente del título */
+    margin-bottom: 10px; /* Espaciado inferior del título */
+}
+
+
+.gemelo-content {
+    
+    
+    color: white; /* Establece el color del texto como blanco */
+    border: 2px solid rgb(63, 63, 63); /* Agrega un borde blanco alrededor de los elementos */
+    color: #333; /* Color del texto */
+    font-size: 14px; /* Tamaño de la fuente */
+    outline: none; /* Elimina el contorno al editar */
+}
+
+.digital-twin .gemelo-content img {
+    width: 100%; /* O ajusta el ancho según lo que desees */
+    height: 200px; /* Esto permite mantener la proporción original */
+}
+
+
+/* DATOS DE ARTICULACIONES*/
+/* DATOS DE ARTICULACIONES */
+/* DATOS DE ARTICULACIONES */
+#contGemelo {
+    color: white; /* Establece el color del texto como blanco */
+    width: 855px; /* Tamaño fijo del contenedor de junturas */
+    max-height: 200px; /* Altura máxima del contenedor */
+    overflow-y: auto; /* Agrega desplazamiento vertical si el contenido excede la altura máxima */
+    border: 1px solid rgba(63, 63, 63, 0.8); /* Borde del contenedor con opacidad */
+    padding: 5px;
+    border-radius: 10px; /* Redondea los bordes del contenedor */
+}
+
+/* Estilos para los elementos dentro del contenedor */
+/* Estilos para los elementos dentro del contenedor */
+
+
+
+.cont_menu {
+    background-color: rgba(37, 36, 36, 0.89);
+    border: 1px solid rgba(63, 63, 63);
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 580px;
+    margin-left: 20px;
+    margin-right: auto;
+    width: 1260px;
+    height: 50px;
+    position: absolute;
+    z-index: 999;
+}
+/* Estilo básico para los botones del menú */
+
+/* Estilo para cambiar la opacidad al pasar el cursor sobre los botones */
+.menu_button:hover img {
+    opacity: 1; /* Hace que las imágenes sean más brillantes al pasar el cursor sobre ellas */
+}
+
+.menu_button {
+    
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%; /* Hace que el botón sea redondo */
+    margin: 5px; /* Espacio entre botones */
+    bottom: 8px;
+    left: 500px; /* Espacio entre botones */
+    cursor: pointer;
+    overflow: hidden; /* Para que la imagen no se desborde del círculo */
+    position: relative; /* Posicionamiento relativo para alinear la imagen */
+}
+
+.menu_button img {
+    width: 100%; /* Ajusta el ancho de la imagen al 100% del botón */
+    height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
+    border-radius: 50%; /* Hace que la imagen sea redonda */
+    position: absolute; /* Posicionamiento absoluto para alinear la imagen */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Centra la imagen */
+    opacity: 0.5; /* Hace que las imágenes sean más brillantes al pasar el cursor sobre ellas */
+}
+
+.menu_button:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Cambia el color de fondo al pasar el cursor */
+}
+.menu_button:hover img {
+    filter: brightness(0.8); /* Reduce el brillo de la imagen al pasar el cursor */
+}
+
+
+#map {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    width: 410px;
+    height: 410px;
+    z-index: 999;
+    margin-left: 435px; /* Cambiar el valor según sea necesario */
+    margin-top: 10px;
+    border-radius: 15px; /* Redondear los bordes */
+    overflow: hidden; /* Para que la imagen redondeada no se desborde */
+    object-fit: cover;
+    object-fit: cover; /* Ajustar la imagen para cubrir el contenedor */
+    border-radius: 15px; /* Redondear los bordes de la imagen */
+}
+.mapa {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajustar la imagen para cubrir el contenedor */
+    border-radius: 15px; /* Redondear los bordes de la imagen */
+}
+
+.container1{
+    display: flex;
+}
+
+/*CONTENEDOR 2 -BOTONES DE CONTROL */
+
+.container2{
+    display: flex;  
+    margin-top: 40px;  
+}
+.speedometer {
+    width: 160px; /* Cambiamos el ancho del velocímetro */
+    height: 90px; /* Cambiamos la altura del velocímetro */
+    position: absolute; /* Cambiamos la posición a absoluta para posicionar correctamente */
+    bottom: 25px; /* Lo colocamos al fondo */
+    left: 50px; /* Lo colocamos a la izquierda */
+    background-color: rgba(37, 36, 36, 0.89);
+    border: 1px solid rgba(63, 63, 63);
+    border-radius: 20px; /* Hacemos el border-radius más grande para que se vea más redondeado */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Reducimos la sombra para mantener la estética */
+    overflow: hidden; /* Ocultamos cualquier contenido que se salga del contenedor */
+}
+
+.speedometer__progress {
+    width: 100%;
+    height: 100%;
+    background-color: #9f86f8; /* Color sólido para la barra de progreso (verde) */
+    border-radius: 20px; /* Radio del borde para bordes redondeados */
+}
+
+.speedometer__needle {
+    display: none; /* Oculta la aguja del velocímetro */
+}
+
+.speedometer__text {
+    position: absolute;
+    top: 20px;
+    left: 10px; /* Cambiamos la posición a la izquierda */
+    font-size: 24px; /* Aumentamos el tamaño del texto */
+    font-weight: bold;
+    color: #333;
+    transition: font-size 0.3s; /* Añadimos una transición para el cambio de tamaño de fuente */
+}
+
+.speedometer:hover .speedometer__progress {
+    height: 110%; /* Aumentamos la altura del progreso al pasar el cursor sobre el velocímetro */
+}
+
+.speedometer:hover .speedometer__text {
+    font-size: 20px; /* Reducimos el tamaño del texto al pasar el cursor sobre el velocímetro */
+}
+.temperature {
+    width: 160px; /* Ancho del medidor de temperatura */
+    height: 90px; /* Altura del medidor de temperatura */
+    position: absolute; /* Posición absoluta para posicionar correctamente */
+    bottom: 25px; /* Colocarlo en la parte inferior */
+    left: 240px; /* Colocarlo a la izquierda */
+    background-color: rgba(37, 36, 36, 0.89);
+    border: 1px solid rgba(63, 63, 63);
+    border-radius: 20px; /* Radio del borde para bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra para un efecto elevado */
+}
+
+.temperature__progress {
+    width: 100%;
+    height: 100%;
+    background-color: #f7a740; /* Color sólido para la barra de progreso (verde) */
+    border-radius: 20px; /* Radio del borde para bordes redondeados */
+}
+
+
+
+
+.temperature__needle {
+    display: none; /* Ocultar la aguja */
+}
+
+.temperature__text {
+    position: absolute;
+    top: 20px; /* Posición desde la parte superior */
+    left: 10px; /* Posición desde la izquierda */
+    font-size: 24px; /* Tamaño del texto */
+    font-weight: bold; /* Texto en negrita */
+    color: #333; /* Color del texto */
+}
+
+
+/* Estilos al pasar el ratón sobre el velocímetro */
+.temperaturer:hover .temperature__progress {
+    height: 110%; /* Aumenta la altura */
+}

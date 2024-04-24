@@ -1,0 +1,305 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor de la imagen de fondo */
+.background {
+    background-image: url('../imge/fondoneutro.jpg'); /* Ruta de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+
+
+
+/* Contenedor del gemelo digital */
+.container1 {
+    display: flex;
+    width: 380px;
+    height: 470px;
+    margin-left: 10px; /* Espacio izquierdo reducido */
+}
+
+.digital-twin {
+    background-color: rgba(37, 36, 36, 0.89);
+    border: 1px solid rgba(63, 63, 63);
+    border-radius: 15px;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    
+}
+
+/* Estilos para las celdas de velocidad */
+.dashboard {
+    
+    position: relative; /* Posición relativa para alinear elementos internos */
+    display: flex;
+    justify-content: space-between;
+    top: 10px;
+    padding: 10px;
+    background-color: rgba(37, 36, 36, 0.89);
+    border: 1px solid rgba(63, 63, 63);
+    border-radius: 15px;
+    width: 850px; /* Ancho de cada cuadro de velocidad */
+    height: 110px; /* Altura de cada cuadro de velocidad */
+    margin-right: 10px; /* Agrega un margen a la izquierda de 10px */
+    margin-left: 10px; /* Agrega un margen a la izquierda de 10px */
+    
+}
+
+.speedometer {
+    width: 90px; /* Ancho de cada cuadro de velocidad */
+    height: 90px; /* Altura de cada cuadro de velocidad */
+    position: relative; /* Posición relativa para alinear elementos internos */
+    background-color: rgba(37, 36, 36, 0.89);
+    border: 1px solid rgba(63, 63, 63);
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    margin-right: 10px; /* Espacio entre los cuadros de velocidad */
+    display: inline-block; /* Para que los cuadros aparezcan en línea */
+}
+
+.speedometer__progress {
+    width: 0; /* El ancho inicial será 0, ya que se actualizará con JavaScript */
+    height: 100%;
+    background-color: #9f86f8; /* Color base de la barra de progreso */
+    border-radius: 20px; /* Bordes redondeados */
+    transition: width 0.5s; /* Transición suave al cambiar el ancho */
+}
+
+.speedometer__text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Estilos al pasar el ratón sobre el cuadro de velocidad */
+.speedometer:hover .speedometer__progress {
+    width: 110%; /* Aumenta el ancho al pasar el ratón */
+}
+.speedometer__progress.blue {
+    background-color: #9dc1f9; /* Azul pastel */
+}
+
+.speedometer__progress.red {
+    background-color: #94baf7; /* Azul pastel */
+}
+
+.speedometer__progress.green {
+    background-color: #6fd08c; /* Verde pastel */
+}
+
+.speedometer__progress.orange {
+    background-color: #87e7a4d7; /* Verde pastel */
+}
+
+.speedometer__progress.purple {
+    background-color: #a29bfe; /* Morado pastel */
+}
+
+.speedometer__progress.yellow {
+    background-color: #a4a0e5bd; /* Morado pastel */
+}
+
+
+
+.cont_menu {
+    background-color: rgba(37, 36, 36, 0.89);
+    border: 1px solid rgba(63, 63, 63);
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 530px;
+    margin-left: 20px;
+    margin-right: auto;
+    width: 1260px;
+    height: 50px;
+    position: absolute;
+    z-index: 999;
+}
+/* Estilo básico para los botones del menú */
+
+/* Estilo para cambiar la opacidad al pasar el cursor sobre los botones */
+.menu_button:hover img {
+    opacity: 1; /* Hace que las imágenes sean más brillantes al pasar el cursor sobre ellas */
+}
+
+.menu_button {
+    
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%; /* Hace que el botón sea redondo */
+    margin: 5px; /* Espacio entre botones */
+    bottom: 8px;
+    left: 500px; /* Espacio entre botones */
+    cursor: pointer;
+    overflow: hidden; /* Para que la imagen no se desborde del círculo */
+    position: relative; /* Posicionamiento relativo para alinear la imagen */
+}
+
+.menu_button img {
+    width: 100%; /* Ajusta el ancho de la imagen al 100% del botón */
+    height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
+    border-radius: 50%; /* Hace que la imagen sea redonda */
+    position: absolute; /* Posicionamiento absoluto para alinear la imagen */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Centra la imagen */
+    opacity: 0.5; /* Hace que las imágenes sean más brillantes al pasar el cursor sobre ellas */
+}
+
+.menu_button:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Cambia el color de fondo al pasar el cursor */
+}
+.menu_button:hover img {
+    filter: brightness(0.8); /* Reduce el brillo de la imagen al pasar el cursor */
+}
+
+
+.angles {
+    position: absolute;
+    bottom: 125px;
+    left: 450px;
+    width: 100%; /* O ajusta el ancho según tus necesidades */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    grid-template-rows: repeat(3, auto); /* 3 filas */
+    gap: 15px; /* Espacio entre los elementos */
+    padding: 10px;
+    background-color: rgba(37, 36, 36, 0.89);
+    border: 1px solid rgba(63, 63, 63);
+    border-radius: 15px;
+    width: 350px; /* Ajusta el ancho según tus necesidades */
+    height: 300px;
+    
+}
+
+.angle-box {
+    left: 15px;
+    width: calc(80% - 5px); /* Ancho de cada columna con margen */
+    height: 90px;
+    position: relative;
+    background-color: rgba(37, 36, 36, 0.89);
+    border: 1px solid rgba(63, 63, 63);
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex; /* Para alinear verticalmente el texto */
+    align-items: center; /* Para alinear verticalmente el texto */
+}
+
+.angle-meter {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: rgba(63, 63, 63); /* Color base del ángulo */
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.angle-meter__progress {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #9f86f8; /* Color base del ángulo */
+    opacity: 0; /* Inicialmente transparente */
+    transition: opacity 0.5s ease; /* Transición de la opacidad */
+}
+
+.angle-meter:hover .angle-meter__progress {
+    width: 110%; /* Cambiado de 110% a 100% */
+}
+
+
+.angle-meter__text {
+    width: 100%; /* Ajusta el ancho del texto al 100% */
+    text-align: center; /* Centra horizontalmente el texto */
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.angle-meter:hover .angle-meter__progress {
+    width: 110%;
+}
+.warning-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: transparent; /* Color inicial */
+    margin-right: 15px; /* Espacio entre el indicador y el medidor de ángulo */
+}
+
+.warning-indicator.red {
+    background-color: #e75050; /* Rojo */
+}
+
+.warning-indicator.yellow {
+    background-color: #ffc720f8; /* Amarillo */
+}
+.warning-indicator.green {
+    background-color: #e75050; /* Rojo */
+}
+
+
+
+.cont_video {
+    width: 465px;
+    height: 325px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cont_video {
+   
+    position: absolute;
+    bottom: 125px;
+    left: 420px;
+    width: 100%; /* O ajusta el ancho según tus necesidades */
+
+width: 465px;
+height: 325px;
+z-index: 999;
+margin-top: 10px;
+margin-left: 435px;
+border-radius: 15px; /* Redondear los bordes */
+overflow: hidden; /* Para que la imagen redondeada no se desborde */
+object-fit: cover; /* Ajustar la imagen para cubrir el contenedor */
+border-radius: 15px; /* Redondear los bordes de la imagen */
+}
+
+.cont_video .video {
+width: 100%;
+height: 100%;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+.cont_video {
+    width: 100%; /* Ajusta el ancho del video al 100% en dispositivos móviles */
+    margin: 0; /* Elimina el margen para centrar en dispositivos móviles */
+}
+}
+.container2{
+    display: absolute;  
+    margin-top: 40px;  
+}
