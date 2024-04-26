@@ -1,11 +1,11 @@
 // Función para actualizar el valor del input numérico y la variable correspondiente
 function updateNumberInput(slider) {
     const id = slider.id;
-    const numberInput = document.getElementById(id.replace('grado', 'angulo').replace('VELOCIDAD', 'vel').replace('referen','Referencia'));
+    const numberInput = document.getElementById(id.replace('grado', 'angulo').replace('VELOCIDAD', 'vel').replace('referen','Referencia').replace('POSICIONX','posx').replace('POSICIONY','posy').replace('POSICIONZ','posz'));
     numberInput.value = slider.value;
     
     // Actualizar la variable correspondiente utilizando window[id]
-    window[id.replace('grado', 'angulo').replace('VELOCIDAD', 'vel').replace('referen','Referencia')]= parseInt(slider.value);
+    window[id.replace('grado', 'angulo').replace('VELOCIDAD', 'vel').replace('referen','Referencia').replace('POSICIONX','posx').replace('POSICIONY','posy').replace('POSICIONZ','posz')]= parseInt(slider.value);
     sendDataToPython();
 }
 
@@ -138,14 +138,14 @@ document.addEventListener('keydown', function(event) {
 
 function updateSliderFromNumberInput(numberInput) {
     const id = numberInput.id;
-    const slider = document.getElementById(id.replace('angulo', 'grado').replace('vel', 'VELOCIDAD').replace('Referencia','referen'));
+    const slider = document.getElementById(id.replace('angulo', 'grado').replace('vel', 'VELOCIDAD').replace('Referencia','referen').replace('POSICIONX','posx').replace('POSICIONY','posy').replace('POSICIONZ','posz'));
 
     // Actualizar el valor del slider cuando se cambie el cuadro de entrada
     slider.value = parseInt(numberInput.value);
 
     // Actualizar la variable correspondiente utilizando window[id]
     //window[id.replace('angulo', 'grado').replace('vel', 'VELOCIDAD').replace('Referencia','referen')] = parseInt(numberInput.value);
-    const variableName = id.replace('angulo', 'grado').replace('vel', 'VELOCIDAD').replace('Referencia','referen');
+    const variableName = id.replace('angulo', 'grado').replace('vel', 'VELOCIDAD').replace('Referencia','referen').replace('POSICIONX','posx').replace('POSICIONY','posy').replace('POSICIONZ','posz');
     window[variableName] = parseInt(numberInput.value);
 
     // Igualar angulo1 con grado1

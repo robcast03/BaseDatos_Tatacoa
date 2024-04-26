@@ -33,7 +33,7 @@ def receive_data():
     velocidad5 = float(data.get('vel5')) if data.get('vel5') is not None else 0
     velocidad6 = float(data.get('vel6')) if data.get('vel6') is not None else 0
     velocidad7 = float(data.get('vel7')) if data.get('vel7') is not None else 0
-    referencia = float(data.get('Referencia'))if data.get('Referencia') is not None else 0
+    referencia = float(data.get('ref'))if data.get('ref') is not None else 0
     posicionX = float(data.get('posx'))if data.get('posx') is not None else 0
     posicionY = float(data.get('posy'))if data.get('posy') is not None else 0
     posicionZ = float(data.get('posz'))if data.get('posz') is not None else 0
