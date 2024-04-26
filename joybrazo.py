@@ -1,12 +1,15 @@
 from flask import Flask, render_template,jsonify,request, Response
-from class_firebase_database import FirebaseDB
-import cv2
-import requests
+import mysql.connector
 app=Flask(__name__)
-#camera = cv2.VideoCapture(0)
-path ="basededatosprueva-79653-firebase-adminsdk-uu60k-78a8daca61.json"
-url = "https://basededatosprueva-79653-default-rtdb.firebaseio.com/"
-fb_db = FirebaseDB(path,url)
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="angulosbrazo",
+    connect_timeout=60
+)
+
 
 @app.route('/receive_data', methods=['POST'])
 def receive_data():
@@ -30,32 +33,19 @@ def receive_data():
     velocidad6 = float(data.get('vel6')) if data.get('vel6') is not None else 0
     velocidad7 = float(data.get('vel7')) if data.get('vel7') is not None else 0
     referencia = float(data.get('Referencia'))if data.get('Referencia') is not None else 0
-    print(angulo1,angulo2,angulo3,angulo4,angulo5)
+    posicionX = float(data.get('posx'))if data.get('posx') is not None else 0
+    posicionY = float(data.get('posy'))if data.get('posy') is not None else 0
+    posicionZ = float(data.get('posz'))if data.get('posz') is not None else 0
+    print(angulo1, angulo2, angulo3,angulo4,angulo5,angulo6,angulo7,velocidad1,velocidad2,velocidad3,velocidad4,velocidad5,velocidad6,velocidad7, referencia,posicionX,posicionY,posicionZ)
     # Guardar los ángulos en la base de datos de Firebase
-    datos_valores={
-        'angulo1': angulo1,
-        'angulo2': angulo2,
-        'angulo3': angulo3,
-        'angulo4': angulo4,
-        'angulo5': angulo5,
-        'angulo6': angulo6,
-        'angulo7': angulo7,
-        'velocidad1': velocidad1,
-        'velocidad2': velocidad2,
-        'velocidad3': velocidad3,
-        'velocidad4': velocidad4,
-        'velocidad5': velocidad5,
-        'velocidad6': velocidad6,
-        'velocidad7': velocidad7,
-        'referencia': referencia
-
-    }
-    print("Valores de los ángulos que se van a enviar:", datos_valores)
+    cursor = mydb.cursor()
+    sql = "INSERT INTO angulos(angulo1, angulo2, angulo3,angulo4,angulo5,angulo6,angulo7,velocidad1,velocidad2,velocidad3,velocidad4,velocidad5,velocidad6,velocidad7, referancia,valorx,valory,valorz) VALUES (%s, %s, %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    val = (angulo1, angulo2, angulo3,angulo4,angulo5,angulo6,angulo7,velocidad1,velocidad2,velocidad3,velocidad4,velocidad5,velocidad6,velocidad7, referencia,posicionX,posicionY,posicionZ)  # Asegúrate de tener los valores correctos aquí
+    cursor.execute(sql, val)
+    mydb.commit()
+    cursor.close()
     
 
-    fb_db.write_record('/angulosBrazo/angulos', datos_valores)
-    data=fb_db.read_record('/angulosBrazo/angulos')
-    print("Valores de los ángulos que se van a enviar:", data)
    
     return jsonify({'message': 'Datos recibidos correctamente'})
            
@@ -69,5 +59,5 @@ def ejecutar_codigo():
     # Aquí puedes colocar el código de Python que deseas ejecutar al presionar el botón
     print("Código de Python ejecutado")
     return "Código de Python ejecutado con éxito"
-if __name__=='__main__':
+if __name__=='main_':
     app.run(host='127.0.0.2',port=5000, debug=True)

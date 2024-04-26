@@ -1,4 +1,3 @@
-
 // Función para actualizar el valor del input numérico y la variable correspondiente
 function updateNumberInput(slider) {
     const id = slider.id;
@@ -194,7 +193,11 @@ function sendDataToPython() {
         vel5: parseFloat(window.vel5),
         vel6: parseFloat(window.vel6),
         vel7: parseFloat(window.vel7),
-        ref: parseFloat(window.Referencia)
+        ref: parseFloat(window.Referencia),
+        posx:parseFloat(window.posx),
+        posy:parseFloat(window.posy),
+        posz:parseFloat(window.posz),
+
     };
 
     console.log(data);
