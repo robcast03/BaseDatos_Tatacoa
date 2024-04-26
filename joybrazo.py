@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template,jsonify,request, Response
 import mysql.connector
 app=Flask(__name__)
@@ -59,5 +60,5 @@ def ejecutar_codigo():
     # Aquí puedes colocar el código de Python que deseas ejecutar al presionar el botón
     print("Código de Python ejecutado")
     return "Código de Python ejecutado con éxito"
-if __name__=='main_':
+if __name__=='__main__':
     app.run(host='127.0.0.2',port=5000, debug=True)
