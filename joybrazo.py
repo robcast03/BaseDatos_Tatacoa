@@ -8,7 +8,7 @@ mydb = mysql.connector.connect(
     user="root",
     password="",
     database="angulosbrazo",
-    connect_timeout=60
+    connect_timeout=10000
 )
 
 
