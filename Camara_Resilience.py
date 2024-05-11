@@ -1,12 +1,19 @@
 import cv2
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response,jsonify ,request
 from flask_socketio import SocketIO
+import mysql.connector
 
 app = Flask(__name__)
 socketio = SocketIO(app)
 
 rostros_cascada = cv2.CascadeClassifier('Haarcascades/haarcascade_frontalface_default.xml')
 
+db_connection = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="buggy"
+)
 
 
 def gen_frames():
@@ -51,6 +58,27 @@ def handle_request_frame():
 @app.route('/video_feed')
 def video_feed():
     return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/receive_data', methods=['POST'])
+def receive_data():
+    data = request.json
+    print("Datos recibidos desde el cliente:")
+    for key, value in data.items():
+        print(key + ":", value)
+
+    direccion = data.get('direccion') if data.get('direccion') is not None else 0
+    ruedas = float(data.get('ruedas')) if data.get('ruedas') is not None else 0
+
+    cursor = db_connection.cursor()
+    sql = "INSERT INTO velocidades (direccion, ruedas) VALUES (%s, %s)"
+    val = (direccion, ruedas)
+    cursor.execute(sql, val)
+    db_connection.commit()
+    
+    # Cerrar el cursor y la conexión a la base de datos
+    cursor.close()
+
+    return jsonify({'message': 'Datos recibidos correctamente'})
 
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=5000, debug=True

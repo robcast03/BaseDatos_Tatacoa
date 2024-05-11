@@ -1,7 +1,6 @@
 from flask import Flask, render_template, Response
-from flask import Flask, render_template, Response
 import cv2
-import requests
+import os
 app=Flask(__name__)
 camera = cv2.VideoCapture(0)
 
@@ -11,14 +10,15 @@ camera = cv2.VideoCapture(0)
 
 def gen_frames(): 
     camera = cv2.VideoCapture(0) 
-    camera.set(cv2.CAP_PROP_FRAME_WIDTH,80)
-    camera.set(cv2.CAP_PROP_FRAME_HEIGHT,80)
+    camera.set(cv2.CAP_PROP_FRAME_WIDTH,680)
+    camera.set(cv2.CAP_PROP_FRAME_HEIGHT,480)
     while True:
         success, frame = camera.read()  # read the camera frame
         if not success:
             break
         else:
-            detector=cv2.CascadeClassifier('Haarcascades/haarcascade_frontalface_default.xml')
+            xml_path = os.path.abspath('Haarcascades/haarcascade_frontalface_default.xml')
+            detector = cv2.CascadeClassifier(xml_path)
            
             faces=detector.detectMultiScale(frame,1.1,7)
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -55,4 +55,5 @@ def ejecutar_codigo():
     return "Código de Python ejecutado con éxito"
 if __name__=='__main__':
   app.run(host='127.0.0.1',port=5000, debug=True)
+
 

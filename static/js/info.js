@@ -19,10 +19,10 @@ document.getElementById('botonModelos').addEventListener('click', function() {
 
 document.getElementById('botonCalculos').addEventListener('click', function() {
     // Redirige a 'joy.html' ubicado en la carpeta 'templates'
-    window.location.href = 'http://127.0.0.1:5000';
+    window.location.href = 'http://127.0.0.2:5000';
 });
 
 document.getElementById('botonJoyBrazo').addEventListener('click', function() {
     // Redirige a 'joy.html' ubicado en la carpeta 'templates'
-    window.location.href = 'http://127.0.0.8:5000';
+    window.location.href = 'http://127.0.0.1:5000';
 });

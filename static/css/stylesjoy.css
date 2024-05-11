@@ -125,4 +125,119 @@ body {
 }
 
 
+#joystick-container {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    position: relative;
+}
 
+#controls {
+    text-align: center;
+    position: relative;
+    top: 550px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#arrow-keys {
+    display: inline-block;
+}
+
+#joystick-container {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    position: relative;
+}
+
+#controls {
+    text-align: center;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#arrow-keys {
+    display: inline-block;
+}
+
+.arrow {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: 3px solid #e6e6e6;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    display: inline-block;
+    margin: 5px;
+    background: radial-gradient(circle at center, rgba(0, 120, 190, 0.5) 0%, rgb(81, 109, 145) 70%), #546b77;
+    border-radius: 50%;
+}
+
+.arrow:hover {
+    transform: scale(1.1);
+    background: radial-gradient(circle at center, rgba(77, 77, 77, 0.8) 0%, rgba(255,255,255,0) 70%), #ced8dd;
+    filter: grayscale(50%) brightness(100%);
+}
+
+.arrow.active {
+    background: radial-gradient(circle at center, rgba(39, 82, 83, 0.651) 0%, rgba(161, 161, 255, 0) 70%), #bdbcbc;
+    filter: grayscale(0%) brightness(100%);
+}
+
+.arrow.active.w { border-bottom-color: #ffffff; }
+.arrow.active.a { border-right-color: #ffffff; }
+.arrow.active.s { border-top-color: #ffffff; }
+.arrow.active.d { border-left-color: #ffffff; }
+.arrow.active.l { border-color: #ffffff; }
+.arrow.active.k { border-color: #ffffff; }
+
+.arrow.w {
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid #ccc;
+}
+
+.arrow.a {
+    border-left: 10px solid transparent;
+    border-right: 10px solid #ccc;
+}
+
+.arrow.s {
+    border-top: 10px solid #ccc;
+    border-bottom: 10px solid transparent;
+}
+
+.arrow.d {
+    border-left: 10px solid #ccc;
+    border-right: 10px solid transparent;
+}
+
+.arrow.l {
+    border-left: 10px solid #ccc;
+    border-bottom: 10px solid transparent;
+}
+
+.arrow.k {
+    border-right: 10px solid #ccc;
+    border-bottom: 10px solid transparent;
+}
+.arrow:hover {
+    transform: scale(1.1);
+    background: radial-gradient(circle at center, rgba(77, 77, 77, 0.8) 0%, rgba(255,255,255,0) 70%), #ced8dd;
+    filter: grayscale(50%) brightness(100%);
+}
+
+#key-status {
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+@media only screen and (max-width: 600px) {
+    #controls {
+        bottom: 20px;
+    }
+}

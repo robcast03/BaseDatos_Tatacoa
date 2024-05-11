@@ -18,8 +18,23 @@
             <div class="gemelo-content" contenteditable="true">
                 <!-- Aquí puedes agregar contenido interactivo -->
                 <img src="../static/imge/rovert.gif" alt="GIF Interactivo">
-            </div>            
+            </div>  
+            <div class="buttons">
+                <!-- Barras para controlar los grados de las articulaciones -->
+                <div class="speedometer">
+                    
+                    <div class="speedometer__progress"></div>
+                    <div class="speedometer__needle"></div>
+                    <div class="speedometer__text">0 km/h</div>
+                </div>
+                <div class="temperature">
+                    <div class="temperature__progress"></div>
+                    <div class="temperature__needle"></div>
+                    <div class="temperature__text">0 °C</div>
+                </div>
+            </div>     
         </div>
+          
 
         <div class="cont_gemelo" id="contGemelo">
             <!-- Variables de arriba -->
@@ -40,6 +55,7 @@
                     <br>
                     <span class="sensor-description">Type pressure</span>
                 </p>
+                <div></div>
                 <!-- Variable 3: red -->
                 <p>
                     <img src="../static/imge/4.png" alt="Signal Icon">
@@ -76,35 +92,21 @@
             
             </div>
         </div>
-        <div class="buttons">
-            <!-- Barras para controlar los grados de las articulaciones -->
-            <div class="speedometer">
-                
-                <div class="speedometer__progress"></div>
-                <div class="speedometer__needle"></div>
-                <div class="speedometer__text">0 km/h</div>
-            </div>
-            <div class="temperature">
-                <div class="temperature__progress"></div>
-                <div class="temperature__needle"></div>
-                <div class="temperature__text">0 °C</div>
-            </div>
-        </div>
-
-     
         <p>
-        <div class="container2">
-            <div class="cont_video">
-                <div class="cont_mapa">
-                    <div id="map"></div>>
-                </div> 
-            </div>
-            
-            <div class="cont_radar" id="contradar">
-                <img src="../static/imge/radar.png" alt="" class="mapa">
-            </div>
-            
-        </div></p>
+            <div class="container2">
+                <div class="cont_video">
+                    <div class="cont_mapa">
+                        <div id="map"></div>>
+                    </div> 
+                </div>
+                
+                <div class="cont_radar" id="contradar">
+                    <img src="../static/imge/radar.png" alt="" class="mapa">
+                </div>
+                
+            </div></p>
+        
+   
     <div class="cont_menu" id="contMenu">
             <a href="dash.html"><button class="menu_button" id="homeButton"><img src="../static/imge/casa.jpg" alt="Home"></button></a>
             <button class="menu_button" id="locationButton"><img src="../static/imge/ubicacion.jpg" alt="Location"></button>
@@ -152,7 +154,7 @@
    
     
 
-<script  src="../static/js/scriptRoverto.js" type="module" ></script>
+<script  src="../static/js/scriptRoverto.js"  ></script>
 <!---<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMapa"></script>--->
 </body>
 </html>

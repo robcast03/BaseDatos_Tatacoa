@@ -1,4 +1,3 @@
-/* Estilos generales */
 body {
     margin: 0;
     padding: 0;
@@ -11,12 +10,13 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
-    display: flex;
+    padding: 68px;
+    height: 100vh; /* El 100% de la altura de la ventana gráfica */
+    display: relative;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px;
 }
+
 
 .cont_video {
    
@@ -38,6 +38,8 @@ padding: 10px;
     background-color: rgba(37, 36, 36, 0.89);
     border: 1px solid rgba(63, 63, 63);
     border-radius: 15px;
+    width: 100%; /* Cambia a porcentaje o unidades relativas */
+    height: auto; /* Para mantener la proporción */
 }
 
 .cont_video .video {
@@ -54,67 +56,67 @@ height: 100%;
 }
 .container2{
     display: flex;  
-    margin-top: 40px;  
+    top: 650px;  
+    position: relative;
 }
 
 .cont_menu {
     background-color: rgba(37, 36, 36, 0.89);
     border: 1px solid rgba(63, 63, 63);
     border-radius: 15px;
-    padding: 10px;
-    margin-top: 530px;
-    margin-left: 20px;
-    margin-right: auto;
-    width: 1260px;
-    height: 50px;
+    padding: 5px;
+    width: 90%;
     position: absolute;
+    bottom: 0px; /* Ajusta la distancia del contenedor al borde inferior */
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Centra horizontalmente */
     z-index: 999;
+    display: flex; /* Utiliza flexbox para alinear los botones */
+    justify-content: center; /* Centra los botones horizontalmente */
 }
-/* Estilo básico para los botones del menú */
+
+.menu_button {
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%;
+    margin: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.menu_button img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+}
+
+.menu_button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.menu_button:hover img {
+    filter: brightness(0.8);
+}
 
 /* Estilo para cambiar la opacidad al pasar el cursor sobre los botones */
 .menu_button:hover img {
     opacity: 1; /* Hace que las imágenes sean más brillantes al pasar el cursor sobre ellas */
 }
 
-.menu_button {
-    
-    width: 55px;
-    height: 55px;
-    border: none;
-    border-radius: 50%; /* Hace que el botón sea redondo */
-    margin: 5px; /* Espacio entre botones */
-    bottom: 8px;
-    left: 500px; /* Espacio entre botones */
-    cursor: pointer;
-    overflow: hidden; /* Para que la imagen no se desborde del círculo */
-    position: relative; /* Posicionamiento relativo para alinear la imagen */
-}
-
-.menu_button img {
-    width: 100%; /* Ajusta el ancho de la imagen al 100% del botón */
-    height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
-    border-radius: 50%; /* Hace que la imagen sea redonda */
-    position: absolute; /* Posicionamiento absoluto para alinear la imagen */
-    top: 50%; /* Centra verticalmente */
-    left: 50%; /* Centra horizontalmente */
-    transform: translate(-50%, -50%); /* Centra la imagen */
-    opacity: 0.5; /* Hace que las imágenes sean más brillantes al pasar el cursor sobre ellas */
-}
-
-.menu_button:hover {
-    background-color: rgba(255, 255, 255, 0.5); /* Cambia el color de fondo al pasar el cursor */
-}
-.menu_button:hover img {
-    filter: brightness(0.8); /* Reduce el brillo de la imagen al pasar el cursor */
-}
 /* slider*/
 
 .buttons_slider {
     position: absolute;
     margin-bottom: 50px;
     bottom: 255px;
-    left: 580px;
+    left: 540px;
     width: 720px;
     height: 300px;
     
