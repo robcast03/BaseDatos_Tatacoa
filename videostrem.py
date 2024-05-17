@@ -2,8 +2,10 @@ from flask import Flask, render_template, Response,request,jsonify
 import cv2
 import os
 import mysql.connector
+from flask_socketio import SocketIO
 
 app=Flask(__name__)
+socketio = SocketIO(app)
 
 camera = cv2.VideoCapture(0)
 
@@ -78,6 +80,6 @@ def receive_data():
     return jsonify({'message': 'Datos recibidos correctamente'})
 
 if __name__=='__main__':
-  app.run(host='127.0.0.1',port=5000, debug=True)
+    socketio.run(app, host='0.0.0.0', port=4000, debug=True)
 
 

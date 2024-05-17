@@ -1,9 +1,10 @@
 from flask import Flask, render_template, jsonify, request
 import mysql.connector
 from mysql.connector import Error
+from flask_socketio import SocketIO
 
 app = Flask(__name__)
-
+socketio = SocketIO(app)
 def get_db_connection():
     try:
         connection = mysql.connector.connect(
@@ -81,5 +82,4 @@ def ejecutar_codigo():
     return "Código de Python ejecutado con éxito"
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.2', port=5000, debug=True)
-
+    socketio.run(app, host='0.0.0.0', port=5000, debug=True)
