@@ -40,7 +40,7 @@ def receive_data():
     print(angulo1, angulo2, angulo3,angulo4,angulo5,angulo6,angulo7,velocidad1,velocidad2,velocidad3,velocidad4,velocidad5,velocidad6,velocidad7, referencia,posicionX,posicionY,posicionZ)
     # Guardar los ángulos en la base de datos de Firebase
     cursor = mydb.cursor()
-    sql = "INSERT INTO angulos(angulo1, angulo2, angulo3,angulo4,angulo5,angulo6,angulo7,velocidad1,velocidad2,velocidad3,velocidad4,velocidad5,velocidad6,velocidad7, referancia,valorx,valory,valorz) VALUES (%s, %s, %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    sql = "INSERT INTO angulos(angulo1, angulo2, angulo3,angulo4,angulo5,angulo6,angulo7,velocidad1,velocidad2,velocidad3,velocidad4,velocidad5,velocidad6,velocidad7, referancia,posicionX,posicionY,posicionZ) VALUES (%s, %s, %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
     val = (angulo1, angulo2, angulo3,angulo4,angulo5,angulo6,angulo7,velocidad1,velocidad2,velocidad3,velocidad4,velocidad5,velocidad6,velocidad7, referencia,posicionX,posicionY,posicionZ)  # Asegúrate de tener los valores correctos aquí
     cursor.execute(sql, val)
     mydb.commit()
