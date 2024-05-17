@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="description" content="Página de ejemplo de uso de Joystick puro en JavaScript">
     <link rel="stylesheet" type="text/css" href="../static/css/stylesjoy.css">
-    <script src="../static/js/joy.min.js"></script>
     
 </head>
 <body>
@@ -15,21 +14,6 @@
 			allowfullscreen></img>
 		</div>
 	
-    <!-- Primer joystick 
-    <div id="joyDiv" style="width:200px;height:200px;margin:20px;position:fixed;bottom:2px;left:50px;"></div>
-    <div class="input-container" style="position:fixed;bottom:30px;left:290px;">
-        <label for="joyPosicionX">Posición X:</label>
-        <input id="joyPosicionX" type="text" /><br />
-        <label for="joyPosicionY">Posición Y:</label>
-        <input id="joyPosicionY" type="text" /><br />
-        <label for="joyDireccione">Dirección:</label>
-        <input id="joyDireccione" type="text" /><br />
-        <label for="joyX">X :</label>
-        <input id="joyX" type="text" /><br />
-        <label for="joyY">Y :</label>
-        <input id="joyY" type="text" />
-    </div>-->
-	
 	<div class="button-container">
 		<button class="button1">Botón 1</button><br />
 		<button class="button2">Botón 2</button>
@@ -37,20 +21,6 @@
         <input type="range" min="0" max="120"  value="0" id="slider">
 	</div>
 
-    <!-- Segundo joystick 
-    <div id="joy2Div" style="width:200px;height:200px;margin:20px;position:fixed;bottom:2px;left:1090px;"></div>
-    <div class="input-container" style="position:fixed;bottom:30px;left:800px;">
-        <label for="joy2PosicionX">Posición X:</label>
-        <input id="joy2PosicionX" type="text" /><br />
-        <label for="joy2PosicionY">Posición Y:</label>
-        <input id="joy2PosicionY" type="text" /><br />
-        <label for="joy2Direccione">Dirección:</label>
-        <input id="joy2Direccione" type="text" /><br />
-        <label for="joy2X">X :</label>
-        <input id="joy2X" type="text" /><br />
-        <label for="joy2Y">Y :</label>
-        <input id="joy2Y" type="text" />
-    </div>-->
     <div id="controls">
         <div id="arrow-keys">
             <button class="arrow w" id="w">W</button>
@@ -63,63 +33,9 @@
         <div id="key-status">Última tecla presionada: </div>
     </div>
     <script src="../static/js/joy.min.js"></script>
-    <script type="text/javascript">
-        var joyDiv = document.getElementById("joyDiv");
-        var joyIinputPosX = document.getElementById("joyPosicionX");
-        var joyInputPosY = document.getElementById("joyPosicionY");
-        var joyDireccione = document.getElementById("joyDireccione");
-        var joyX = document.getElementById("joyX");
-        var joyY = document.getElementById("joyY");
-
-        // Crear objeto JoyStick dentro del DIV 'joyDiv'
-        var Joy = new JoyStick('joyDiv', {}, function(stickData) {
-            joyIinputPosX.value = stickData.xPosition;
-            joyInputPosY.value = stickData.yPosition;
-            joyDireccione.value = stickData.cardinalDirection;
-            joyX.value = stickData.x;
-            joyY.value = stickData.y;
-        });
-
-        var joy2Div = document.getElementById("joy2Div");
-        var joy2IinputPosX = document.getElementById("joy2PosicionX");
-        var joy2InputPosY = document.getElementById("joy2PosicionY");
-        var joy2Direccione = document.getElementById("joy2Direccione");
-        var joy2X = document.getElementById("joy2X");
-        var joy2Y = document.getElementById("joy2Y");
-
-        // Crear objeto JoyStick dentro del DIV 'joy2Div'
-        var Joy2 = new JoyStick('joy2Div', {}, function(stickData) {
-            joy2IinputPosX.value = stickData.xPosition;
-            joy2InputPosY.value = stickData.yPosition;
-            joy2Direccione.value = stickData.cardinalDirection;
-            joy2X.value = stickData.x;
-            joy2Y.value = stickData.y;
-        });
-    </script>
+    
      <script>
-        window.movimiento = 0;
-        let slider = document.getElementById('slider');
-        let sliderValue = document.getElementById('sliderValue');
-
-        slider.addEventListener('input', function() {
-            if (window.movimiento !== 0) {
-                sliderValue.value = this.value;
-                AddData();
-            } else {
-                this.value = 0;
-                sliderValue.value = 0;
-            }
-        });
-
-        sliderValue.addEventListener('input', function() {
-            if (window.movimiento !== 0) {
-                slider.value = this.value;
-                AddData();
-            } else {
-                this.value = 0;
-            }
-        });
-
+        
         const arrowButtons = document.querySelectorAll('.arrow');
         const keyStatus = document.getElementById('key-status');
 
@@ -149,13 +65,6 @@
             deactivateAllButtons();
         });
 
-        function AddData() {
-            let ruedasNumerico = parseFloat(slider.value);
-            // Aquí va tu código para enviar datos a Firebase
-            // Asegúrate de que esta función esté definida correctamente
-        }
-
-        setInterval(AddData, 10);
     </script>
 
     
