@@ -35,11 +35,16 @@ function updateSliderFromNumberInput(numberInput) {
     window[variableName] = parseInt(numberInput.value);
 
     // Igualar angulo1 con grado1
-    if (variableName === 'grado1') {
-        window['angulo1'] = parseInt(numberInput.value);
+    for (let i = 1; i <= 7; i++) {
+        if (variableName === `grado${i}`) {
+            window[`angulo${i}`] = parseInt(numberInput.value);
+        }
     }
-
-    sendDataToPython(); // Llamar a la función para enviar los datos a Python
+    for (let i = 1; i <= 7; i++) {
+        if (variableName === `VELOCIDAD${i}`) {
+            window[`vel${i}`] = parseInt(numberInput.value);
+        }
+    }
 }
 
 // Agregar eventos de escucha al cuadro de entrada de número
