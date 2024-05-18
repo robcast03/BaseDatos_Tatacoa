@@ -3,9 +3,9 @@ from flask import Flask, render_template,jsonify,request, Response
 import mysql.connector
 import time
 import threading
-
+from flask_socketio import SocketIO
 app=Flask(__name__)
-
+socketio = SocketIO(app)
 def show_values():
      
  while True:
@@ -54,4 +54,4 @@ def ejecutar_codigo():
     print("Código de Python ejecutado")
     return "Código de Python ejecutado con éxito"
 if __name__=='__main__':
-    app.run(host='127.0.0.7',port=5000, debug=True)
+    socketio.run(app, host='0.0.0.0', port=1000, debug=True)

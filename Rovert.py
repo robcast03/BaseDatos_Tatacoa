@@ -2,59 +2,43 @@
 from flask import Flask, render_template,jsonify,request, Response
 from class_firebase_database import FirebaseDB
 import time
+import mysql.connector
 import threading
+from flask_socketio import SocketIO
 
 app=Flask(__name__)
+socketio = SocketIO(app)
+def show_values():
+     while True:
+            mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="buggy"
+  
+)
 
-path ="basededatosprueva-79653-firebase-adminsdk-uu60k-78a8daca61.json"
-url = "https://basededatosprueva-79653-default-rtdb.firebaseio.com/"
-fb_db = FirebaseDB(path,url)
-datos_mapa={
-        'lat': 4.6767219,
-        'lon':-74.201803111,
-    }
-print("Valores de los ángulos que se van a enviar:", datos_mapa)
-fb_db.write_record('/Mapa/Cordenadas', datos_mapa)
-datos_angulos = fb_db.read_record('/angulosBrazo/angulos')
-# Suponiendo que `fb_db` es una instancia de la clase FirebaseDB y `read_record` devuelve un diccionari
-def obtener_datos_actualizados():
-    # Bucle infinito para obtener datos actualizados
-    while True:
-        # Obtener los datos de la base de datos Firebase
-        datos_angulos = fb_db.read_record('/angulosBrazo/angulos')
+            
+            cursor = mydb.cursor()
+            sql = "SELECT direccion, ruedas FROM buggy ORDER BY id DESC LIMIT 1"
+            cursor.execute(sql)
+            result = cursor.fetchone()
 
-        # Verificar si los datos existen antes de intentar acceder a ellos
-        if datos_angulos:
-            # Almacenar los valores en variables individuales
-            angulo1 = datos_angulos.get('angulo1', 0)
-            angulo2 = datos_angulos.get('angulo2', 0)
-            angulo3 = datos_angulos.get('angulo3', 0)
-            angulo4 = datos_angulos.get('angulo4', 0)
-            angulo5 = datos_angulos.get('angulo5', 0)
-            velocidad1 = datos_angulos.get('velocidad1', 0)
-            velocidad2 = datos_angulos.get('velocidad2', 0)
-            velocidad3 = datos_angulos.get('velocidad3', 0)
-            velocidad4 = datos_angulos.get('velocidad4', 0)
-            velocidad5 = datos_angulos.get('velocidad5', 0)
+            if result:
+                # Asignar los valores de la fila a variables
+                direccion, ruedas = result
+                
+                # Imprimir los valores por consola
+                print("direccion:", direccion)
+                print("Velocidades:", ruedas)
+            else:
+                print("No hay valores en la tabla")
 
-            # Imprimir las variables
-            print("Angulo 1:", angulo1)
-            print("Angulo 2:", angulo2)
-            print("Angulo 3:", angulo3)
-            print("Angulo 4:", angulo4)
-            print("Angulo 5:", angulo5)
-            print("Velocidad 1:", velocidad1)
-            print("Velocidad 2:", velocidad2)
-            print("Velocidad 3:", velocidad3)
-            print("Velocidad 4:", velocidad4)
-            print("Velocidad 5:", velocidad5)
-        else:
-            print("No se encontraron datos de ángulos.")
+            time.sleep(3)
 
-        # Esperar un tiempo antes de volver a obtener los datos
-        time.sleep(10)  # Espera 10 segundos antes de volver a obtener los datos
-# Aquí creamos un hilo para ejecutar la función obtener_datos_actualizados
-thread = threading.Thread(target=obtener_datos_actualizados)
+    
+
+thread = threading.Thread(target=show_values)
 thread.daemon = True  # Esto hace que el hilo se detenga cuando el programa principal termine
 thread.start()
 
@@ -71,4 +55,4 @@ def ejecutar_codigo():
     return "Código de Python ejecutado con éxito"
 
 if __name__=='__main__':
-    app.run(host='127.0.0.9',port=5000, debug=True)
+    socketio.run(app, host='0.0.0.0', port=2000, debug=True)
