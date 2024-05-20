@@ -2,20 +2,26 @@ from flask import Flask, render_template, Response,request,jsonify
 import cv2
 import os
 import mysql.connector
+from mysql.connector import Error
 from flask_socketio import SocketIO
 
 app=Flask(__name__)
 socketio = SocketIO(app)
 
 camera = cv2.VideoCapture(0)
-
-
-db_connection = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="buggy"
-)
+def get_db_connection():
+    try:
+        connection = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="",
+            database="buggy"
+        )
+        if connection.is_connected():
+                return connection
+    except Error as e:
+            print(f"Error connecting to MySQL: {e}")
+            return None
 
 
 def gen_frames(): 
@@ -63,19 +69,24 @@ def receive_data():
     data = request.json
     print("Datos recibidos desde el cliente:")
     for key, value in data.items():
-        print(key + ":", value)
+        print(f"{key}: {value}")
 
     direccion = data.get('direccion') if data.get('direccion') is not None else 0
     ruedas = float(data.get('ruedas')) if data.get('ruedas') is not None else 0
 
-    cursor = db_connection.cursor()
-    sql = "INSERT INTO velocidades (direccion, ruedas) VALUES (%s, %s)"
+    connection = get_db_connection()
+    if connection:
+        cursor = connection.cursor()
+    
+
+    sql = """INSERT INTO velocidades (direccion, ruedas) VALUES (%s, %s)"""
     val = (direccion, ruedas)
     cursor.execute(sql, val)
-    db_connection.commit()
-    
+    connection.commit()
     # Cerrar el cursor y la conexión a la base de datos
     cursor.close()
+    connection.close()
+    
 
     return jsonify({'message': 'Datos recibidos correctamente'})
 
