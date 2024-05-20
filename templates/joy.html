@@ -24,11 +24,15 @@
     <div id="controls">
         <div id="arrow-keys">
             <button class="arrow w" id="w">W</button>
-            <button class="arrow a" id="a">A</button>
-            <button class="arrow s" id="s">S</button>
             <button class="arrow d" id="d">D</button>
-            <button class="arrow l" id="l">L</button>
-            <button class="arrow k" id="k">K</button>
+            <button class="arrow s" id="s">S</button>
+            <button class="arrow a" id="a">A</button>
+            <button class="arrow t" id="t">T</button>
+            <button class="arrow p" id="p">P</button>
+            <button class="arrow q" id="q">Q</button>
+            <button class="arrow r" id="r">R</button>
+            <button class="arrow h" id="h">H</button>
+            <button class="arrow e" id="e">E</button>
         </div>
         <div id="key-status">Última tecla presionada: </div>
     </div>
@@ -55,7 +59,7 @@
         document.addEventListener('keydown', function(event) {
             const key = event.key.toLowerCase();
             keyStatus.textContent = `Última tecla presionada: ${key.toUpperCase()}`;
-            if (['w', 'a', 's', 'd', 'l', 'k'].includes(key)) {
+            if (['w', 'd', 's', 'a', 't', 'p', 'q', 'r', 'h', 'e'].includes(key)) {
                 deactivateAllButtons();
                 activateButton(key);
             }

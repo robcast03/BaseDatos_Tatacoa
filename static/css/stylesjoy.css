@@ -135,7 +135,7 @@ body {
 #controls {
     text-align: center;
     position: relative;
-    top: 550px;
+    top: 530px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -190,38 +190,58 @@ body {
 }
 
 .arrow.active.w { border-bottom-color: #ffffff; }
-.arrow.active.a { border-right-color: #ffffff; }
+.arrow.active.d { border-right-color: #ffffff; }
 .arrow.active.s { border-top-color: #ffffff; }
-.arrow.active.d { border-left-color: #ffffff; }
-.arrow.active.l { border-color: #ffffff; }
-.arrow.active.k { border-color: #ffffff; }
-
-.arrow.w {
+.arrow.active.a { border-left-color: #ffffff; }
+.arrow.active.t { border-color: #ffffff; }
+.arrow.active.p { border-color: #ffffff; }
+.arrow.active.q { border-color: #ffffff; }
+.arrow.active.r { border-color: #ffffff; }
+.arrow.active.h { border-color: #ffffff; }
+.arrow.active.e { border-color: #ffffff; }
+.arrow.s {
     border-top: 10px solid transparent;
     border-bottom: 10px solid #ccc;
 }
 
-.arrow.a {
+.arrow.d {
     border-left: 10px solid transparent;
     border-right: 10px solid #ccc;
 }
 
-.arrow.s {
+.arrow.w {
     border-top: 10px solid #ccc;
     border-bottom: 10px solid transparent;
 }
 
-.arrow.d {
+.arrow.a {
     border-left: 10px solid #ccc;
     border-right: 10px solid transparent;
 }
 
-.arrow.l {
+.arrow.t {
     border-left: 10px solid #ccc;
     border-bottom: 10px solid transparent;
 }
 
-.arrow.k {
+.arrow.p {
+    border-right: 10px solid #ccc;
+    border-bottom: 10px solid transparent;
+}
+.arrow.q {
+    border-left: 10px solid #ccc;
+    border-bottom: 10px solid transparent;
+    
+}
+.arrow.r {
+    border-left: 10px solid #ccc;
+    border-bottom: 10px solid transparent;
+}
+.arrow.h {
+    border-right: 10px solid #ccc;
+    border-bottom: 10px solid transparent;
+}
+.arrow.e {
     border-right: 10px solid #ccc;
     border-bottom: 10px solid transparent;
 }
