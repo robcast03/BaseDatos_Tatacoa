@@ -6,10 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roverto</title>
-    <link rel="stylesheet" href="../static/css/styleRoverto .css">  
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+    <link rel="stylesheet" href="../static/css/styleRoverto.css">  
+ 
 </head>
 <body>
 
@@ -35,7 +33,6 @@
             </div>     
         </div>
           
-
         <div class="cont_gemelo" id="contGemelo">
             <!-- Variables de arriba -->
             <div class="top-sensors">
@@ -96,7 +93,7 @@
             <div class="container2">
                 <div class="cont_video">
                     <div class="cont_mapa">
-                        <div id="map"></div>>
+                        <div id="map"></div>
                     </div> 
                 </div>
                 
@@ -113,49 +110,11 @@
             <button class="menu_button" id="cameraButton"><img src="../static/imge/camara.jpg" alt="Camera"></button>
             <a href="brazo.html"><button class="menu_button" id="carButton"><img src="../static/imge/astro2.jpg" alt="Car"></button></a>
         </div>
-        
 
     </div>
-   
-    
-    
-    <script>
-        function obtenerValores() {
-            // Suponiendo que los valores roll y pitch se obtienen de alguna fuente, como una base de datos, API, etc.
-            var rollValue = "{{ roll }}";
-            var pitchValue = "{{ pitch }}";
-    
-            // Convertir los valores a float usando parseFloat()
-            var rollFloat = parseFloat(rollValue);
-            var pitchFloat = parseFloat(pitchValue);
-            
-            // Retornar los valores convertidos
-            return { roll: rollFloat, pitch: pitchFloat };
-        }
-    
-        var valores = obtenerValores();
-        var valor1 = valores.roll;
-        var valor2 = valores.pitch;
-    
-        // Acceso a los valores de roll y pitch
-        console.log('Valor de roll:', valor1);
-        console.log('Valor de pitch:', valor2);
-
-    </script>
-    <script>
-        // Función para recargar la página
-        function recargarPagina() {
-            location.reload(); // Recarga la página actual
-        }
-    
-        // Llama a la función para recargar la página cada 5000 milisegundos
-        setInterval(recargarPagina, 10000);
-    </script>
-    
-   
     
 
-<script  src="../static/js/scriptRoverto.js" type="module" ></script>
-<!---<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMapa"></script>--->
+<script  src="../static/js/scriptRoverto.js" ></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMapa" async defer></script>
 </body>
 </html>

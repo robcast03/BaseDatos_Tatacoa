@@ -20,7 +20,7 @@ def show_values():
 
             
             cursor = mydb.cursor()
-            sql = "SELECT direccion, ruedas FROM buggy ORDER BY id DESC LIMIT 1"
+            sql = "SELECT direccion, ruedas FROM velocidades ORDER BY id DESC LIMIT 1"
             cursor.execute(sql)
             result = cursor.fetchone()
 
