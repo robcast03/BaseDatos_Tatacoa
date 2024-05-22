@@ -12,68 +12,39 @@ body {
     background-repeat: no-repeat;
     padding: 68px;
     height: 100vh; /* El 100% de la altura de la ventana gráfica */
-    display: relative;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-
-.cont_video {
-   
-    position: absolute;
-    bottom: 115px;
-    left: 30px;
-    width: 100%; /* O ajusta el ancho según tus necesidades */
-
-width: 465px;
-height: 480px;
-z-index: 999;
-margin-top: 10px;
-margin-left: 10px;
-border-radius: 15px; /* Redondear los bordes */
-overflow: hidden; /* Para que la imagen redondeada no se desborde */
-object-fit: cover; /* Ajustar la imagen para cubrir el contenedor */
-border-radius: 15px; /* Redondear los bordes de la imagen */
-padding: 10px;
+.joystickspos {
+    margin-top: 20px;
+    display: flex;
+    padding: 10px;
     background-color: rgba(37, 36, 36, 0.89);
     border: 1px solid rgba(63, 63, 63);
     border-radius: 15px;
-    width: 100%; /* Cambia a porcentaje o unidades relativas */
-    height: auto; /* Para mantener la proporción */
+    position: relative; /* Añadimos posición relativa para que el z-index funcione */
+    z-index: 0; /* Aseguramos que esté detrás de otros elementos */
+}
+.joystickpos input[type="number"] {
+    color: black;
+    background-color: #ffffff;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 3px 5px;
+    width: 40px;
+    font-size: 10px;
 }
 
-.cont_video .video {
-width: 100%;
-height: 100%;
+.joystickpos label {
+    color: white; /* Cambia el color del texto a blanco */
 }
 
-
-@media screen and (max-width: 600px) {
-.cont_video {
-    width: 100%; /* Ajusta el ancho del video al 100% en dispositivos móviles */
-    margin: 0; /* Elimina el margen para centrar en dispositivos móviles */
-}
-}
-.container2{
-    display: flex;  
-    top: 650px;  
-    position: relative;
+.joystickpos p {
+    color: rgb(255, 255, 255);
 }
 
-.cont_menu {
-    background-color: rgba(37, 36, 36, 0.89);
-    border: 1px solid rgba(63, 63, 63);
-    border-radius: 15px;
-    padding: 5px;
-    width: 90%;
-    position: absolute;
-    bottom: 0px; /* Ajusta la distancia del contenedor al borde inferior */
-    left: 50%; /* Centra horizontalmente */
-    transform: translateX(-50%); /* Centra horizontalmente */
-    z-index: 999;
-    display: flex; /* Utiliza flexbox para alinear los botones */
-    justify-content: center; /* Centra los botones horizontalmente */
-}
 
 .menu_button {
     width: 55px;
@@ -103,109 +74,81 @@ height: 100%;
 
 .menu_button:hover img {
     filter: brightness(0.8);
-}
-
-/* Estilo para cambiar la opacidad al pasar el cursor sobre los botones */
-.menu_button:hover img {
     opacity: 1; /* Hace que las imágenes sean más brillantes al pasar el cursor sobre ellas */
 }
 
-/* slider*/
-
+/* slider */
 .buttons_slider {
     position: absolute;
-    margin-bottom: 50px;
-    bottom: 255px;
-    left: 540px;
-    width: 720px;
-    height: 300px;
-    
+    top: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 720px;
+    height: auto;
     padding: 10px;
-    
-    
+}
+body {
+    background-image: url('../img/fondoneutro.jpg'); /* Ruta de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.buttons_slider {
+    display: flex; /* Utiliza Flexbox para alinear en fila */
+    flex-wrap: wrap; /* Permite que los elementos envuelvan si no caben en una línea */
+    justify-content: space-between; /* Espacia los elementos */
+}
+
+.joysticks, .joysticks1 {
+    flex: 1; /* Ocupa el mismo espacio disponible */
+    padding: 10px;
+    background-color: rgba(37, 36, 36, 0.89);
+    border: 1px solid rgba(63, 63, 63);
+    border-radius: 15px;
+    margin: 10px; /* Margen entre los elementos */
 }
 
 .joysticks {
     display: flex;
-    padding: 10px;
-    background-color: rgba(37, 36, 36, 0.89);
-    border: 1px solid rgba(63, 63, 63);
-    border-radius: 15px;
-    position: relative; /* Añadimos posición relativa para que el z-index funcione */
-    z-index: 0; /* Aseguramos que esté detrás de otros elementos */
-}
-.joystickspos {
-    margin-top: 50px;
-    display: flex;
-    padding: 10px;
-    background-color: rgba(37, 36, 36, 0.89);
-    border: 1px solid rgba(63, 63, 63);
-    border-radius: 15px;
-    position: relative; /* Añadimos posición relativa para que el z-index funcione */
-    z-index: 0; /* Aseguramos que esté detrás de otros elementos */
+    flex-direction: column;
 }
 
-.column {
+.joysticks1 {
     display: flex;
     flex-direction: column;
 }
 
-.column + .column {
-    margin-left: 20px; /* Espacio entre columnas */
-}
-.columnpos {
+.column, .column1 {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.columnpos + .columnpos {
-    margin-left: 20px; /* Espacio entre columnas */
-}
-
-.center {
-    display: flex; /* Necesario para usar flex-direction */
-    flex-direction: column; /* Cambiar la dirección de flexbox a column */
-    margin-top: 10px; /* Espacio entre columnas y el slider de referencia */
-    align-items: center; /* Centra el contenido horizontalmente */
-}
-
-.Posicion {
+.joystick, .joystick1 {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
 }
 
-.Posicion + .Posicion {
-    margin-left: 20px; /* Espacio entre columnas */
-}
-
-.joystick {
-    display: flex;
-    align-items: center; /* Alinea verticalmente los elementos */
-    margin-top: 25px; /* Agrega margen superior de 10px */
-}
-.joystickpos {
-    display: flex;
-    align-items: center; /* Alinea verticalmente los elementos */
-    margin-top: 25px; /* Agrega margen superior de 10px */
-}
-.slider {
+.slider, .sliderpos {
     -webkit-appearance: none;
     appearance: none;
-    width: 200px; /* Ancho del slider */
+    width: 200px;
     height: 15px;
     border-radius: 5px;
     background: linear-gradient(to right, #d3d3d3, #ffffff);
     outline: none;
     opacity: 0.7;
-    -webkit-transition: .2s;
     transition: opacity .2s;
 }
 
-.slider:hover {
+.slider:hover, .sliderpos:hover {
     opacity: 1;
 }
 
-.slider::-webkit-slider-thumb {
+.slider::-webkit-slider-thumb, .sliderpos::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 20px;
@@ -216,7 +159,7 @@ height: 100%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-.slider::-moz-range-thumb {
+.slider::-moz-range-thumb, .sliderpos::-moz-range-thumb {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -225,7 +168,7 @@ height: 100%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-.joystick input[type="number"] {
+.joystick input[type="number"], .joystick1 input[type="number"] {
     color: black;
     background-color: #ffffff;
     border: 1px solid gray;
@@ -235,85 +178,110 @@ height: 100%;
     font-size: 10px;
 }
 
-.joystick label {
-    color: white; /* Cambia el color del texto a blanco */
+.joystick label, .joystick1 label {
+    color: white;
 }
 
-.joystick p {
+.joystick p, .joystick1 p {
     color: rgb(255, 255, 255);
 }
 
 
-.joystick label {
-    color: white; /* Cambia el color del texto a blanco */
+.cont_menu {
+    background-color: rgba(37, 36, 36, 0.89);
+    border: 1px solid rgba(63, 63, 63);
+    border-radius: 15px;
+    padding: 10px; /* Ajusta el padding si es necesario */
+    width: 100%;
+    max-width: 800px; /* Más ancho */
+    position: absolute;
+    top: 670px; /* Ajusta la distancia del contenedor al borde inferior */
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Centra horizontalmente */
+    z-index: 999;
+    display: flex; /* Utiliza flexbox para alinear los botones */
+    justify-content: center; /* Centra los botones horizontalmente */
+    color: white; /* Texto en blanco */
+    height: 50px;
 }
 
-.joystick p {
-    color: rgb(255, 255, 255);
+#controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#arrow-keys {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
 }
 
 
-
-.sliderpos {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 80px; /* Ancho del slider */
-    height: 15px;
-    border-radius: 5px;
-    background: linear-gradient(to right, #d3d3d3, #ffffff);
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-}
-
-.sliderpos:hover {
-    opacity: 1;
-}
-
-.sliderpos::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #ffffff;
+.arrow {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: 3px solid #e6e6e6;
+    box-sizing: border-box;
     cursor: pointer;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-.sliderpos::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
+    transition: transform 0.2s, background-color 0.2s;
+    display: inline-block;
+    margin: 5px;
+    background: radial-gradient(circle at center, rgba(0, 120, 190, 0.5) 0%, rgb(81, 109, 145) 70%), #546b77;
     border-radius: 50%;
-    background: #ffffff;
-    cursor: pointer;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-.joystickpos input[type="number"] {
-    color: black;
-    background-color: #ffffff;
-    border: 1px solid gray;
-    border-radius: 5px;
-    padding: 3px 5px;
-    width: 40px;
-    font-size: 10px;
+.arrow:hover {
+    transform: scale(1.1);
+    background: radial-gradient(circle at center, rgba(77, 77, 77, 0.8) 0%, rgba(255,255,255,0) 70%), #ced8dd;
+    filter: grayscale(50%) brightness(100%);
 }
 
-.joystickpos label {
-    color: white; /* Cambia el color del texto a blanco */
+.arrow.active {
+    background: radial-gradient(circle at center, rgba(39, 82, 83, 0.651) 0%, rgba(161, 161, 255, 0) 70%), #bdbcbc;
+    filter: grayscale(0%) brightness(100%);
 }
 
-.joystickpos p {
-    color: rgb(255, 255, 255);
+.arrow.active.h { border-bottom-color: #ffffff; }
+.arrow.active.e { border-right-color: #ffffff; }
+.arrow.active.c { border-top-color: #ffffff; }
+.arrow.active.o { border-left-color: #ffffff; }
+
+
+.arrow.h {
+    border-left: 10px solid #ccc;
+    border-bottom: 10px solid transparent;
 }
 
-
-.joystickpos label {
-    color: white; /* Cambia el color del texto a blanco */
+.arrow.e {
+    border-right: 10px solid #ccc;
+    border-bottom: 10px solid transparent;
+}
+.arrow.c {
+    border-left: 10px solid #ccc;
+    border-bottom: 10px solid transparent;
+    
+}
+.arrow.o {
+    border-left: 10px solid #ccc;
+    border-bottom: 10px solid transparent;
 }
 
-.joystickpos p {
-    color: rgb(255, 255, 255);
+.arrow:hover {
+    transform: scale(1.1);
+    background: radial-gradient(circle at center, rgba(77, 77, 77, 0.8) 0%, rgba(255,255,255,0) 70%), #ced8dd;
+    filter: grayscale(50%) brightness(100%);
+}
+
+#key-status {
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+@media only screen and (max-width: 600px) {
+    #controls {
+        bottom: 20px;
+    }
 }
