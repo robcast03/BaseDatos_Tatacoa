@@ -197,8 +197,7 @@ body {
 .arrow.active.p { border-color: #ffffff; }
 .arrow.active.q { border-color: #ffffff; }
 .arrow.active.r { border-color: #ffffff; }
-.arrow.active.h { border-color: #ffffff; }
-.arrow.active.e { border-color: #ffffff; }
+
 .arrow.s {
     border-top: 10px solid transparent;
     border-bottom: 10px solid #ccc;
@@ -237,14 +236,7 @@ body {
     border-left: 10px solid #ccc;
     border-bottom: 10px solid transparent;
 }
-.arrow.h {
-    border-right: 10px solid #ccc;
-    border-bottom: 10px solid transparent;
-}
-.arrow.e {
-    border-right: 10px solid #ccc;
-    border-bottom: 10px solid transparent;
-}
+
 .arrow:hover {
     transform: scale(1.1);
     background: radial-gradient(circle at center, rgba(77, 77, 77, 0.8) 0%, rgba(255,255,255,0) 70%), #ced8dd;

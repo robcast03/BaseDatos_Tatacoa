@@ -31,8 +31,7 @@
             <button class="arrow p" id="p">P</button>
             <button class="arrow q" id="q">Q</button>
             <button class="arrow r" id="r">R</button>
-            <button class="arrow h" id="h">H</button>
-            <button class="arrow e" id="e">E</button>
+
         </div>
         <div id="key-status">Última tecla presionada: </div>
     </div>
@@ -59,7 +58,7 @@
         document.addEventListener('keydown', function(event) {
             const key = event.key.toLowerCase();
             keyStatus.textContent = `Última tecla presionada: ${key.toUpperCase()}`;
-            if (['w', 'd', 's', 'a', 't', 'p', 'q', 'r', 'h', 'e'].includes(key)) {
+            if (['w', 'd', 's', 'a', 't', 'p', 'q', 'r'].includes(key)) {
                 deactivateAllButtons();
                 activateButton(key);
             }
