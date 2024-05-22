@@ -12,12 +12,23 @@ function updateNumberInput(slider) {
 document.addEventListener('keydown', function(event) {
     if (event.key === 'h') {
         move='h';
+        sendDataToPython();
         console.log(move);
     }
     if (event.key === 'e') {
         move='e';
         console.log(move);
         sendDataToPython();
+    }
+    if (event.key === 'c') {
+        move='c';
+        sendDataToPython();
+        console.log(move);
+    }
+    if (event.key === 'o') {
+        move='o';
+        sendDataToPython();
+        console.log(move);
     }
 });
 
@@ -88,7 +99,7 @@ function sendDataToPython() {
         posx:parseFloat(window.posx),
         posy:parseFloat(window.posy),
         posz:parseFloat(window.posz),
-
+        move: move
     };
 
     console.log(data);

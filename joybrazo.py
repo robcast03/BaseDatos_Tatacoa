@@ -46,10 +46,11 @@ def receive_data():
     posicionX = float(data.get('posx', 0.0) or 0.0)
     posicionY = float(data.get('posy', 0.0) or 0.0)
     posicionZ = float(data.get('posz', 0.0) or 0.0)
+    move=data.get('move')
 
     print(angulo1, angulo2, angulo3, angulo4, angulo5, angulo6, angulo7, 
           velocidad1, velocidad2, velocidad3, velocidad4, velocidad5, 
-          velocidad6, velocidad7, referencia, posicionX, posicionY, posicionZ)
+          velocidad6, velocidad7, referencia, posicionX, posicionY, posicionZ,move)
 
     connection = get_db_connection()
     if connection:
@@ -58,12 +59,12 @@ def receive_data():
             INSERT INTO angulos 
             (angulo1, angulo2, angulo3, angulo4, angulo5, angulo6, angulo7, 
              velocidad1, velocidad2, velocidad3, velocidad4, velocidad5, 
-             velocidad6, velocidad7, referancia, valorx, valory, valorz) 
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+             velocidad6, velocidad7, referancia, valorx, valory, valorz,move) 
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
         val = (angulo1, angulo2, angulo3, angulo4, angulo5, angulo6, angulo7, 
                velocidad1, velocidad2, velocidad3, velocidad4, velocidad5, 
-               velocidad6, velocidad7, referencia, posicionX, posicionY, posicionZ)
+               velocidad6, velocidad7, referencia, posicionX, posicionY, posicionZ,move)
         cursor.execute(sql, val)
         connection.commit()
         cursor.close()
