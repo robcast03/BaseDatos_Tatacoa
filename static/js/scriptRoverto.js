@@ -33,10 +33,10 @@ var socket = io();
             document.getElementById('ruedas').innerText = data.ruedas;
             document.getElementById('temperatureValue').innerText = data.temperatura;
             document.getElementById('pressureValue').innerText = data.presion;
-            document.getElementById('altitud').innerText = data.altitud;
-            document.getElementById('gas').innerText = data.gas;
-            document.getElementById('distancia').innerText = data.distancia;
-            document.getElementById('led').innerText = data.led;
+            document.getElementById('altitudeValue').innerText = data.altitud;
+            document.getElementById('gasValue').innerText = data.gas;
+            document.getElementById('distanceValue').innerText = data.distancia;
+            document.getElementById('ledValue').innerText = data.led;
             document.getElementById('lat').innerText = data.lat;
             document.getElementById('lon').innerText = data.lon;
 

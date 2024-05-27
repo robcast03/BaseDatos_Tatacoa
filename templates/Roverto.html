@@ -12,6 +12,8 @@
 </head>
 <body>
 
+   
+<span id="direccion">N/A</span><span id="ruedas">N/A</span><span id="temperatura">N/A</span><span id="presion">N/A</span><span id="altitud">N/A</span><span id="gas">N/A</span><span id="distancia">N/A</span><span id="led">N/A</span><span id="lat">N/A</span><span id="lon">N/A</span>
     <div class="container1">
         <div class="digital-twin">
             <div class="gemelo-content" contenteditable="true">
@@ -24,7 +26,8 @@
                     
                     <div class="speedometer__progress"></div>
                     <div class="speedometer__needle"></div>
-                    <div class="speedometer__text">0 km/h</div>
+                    <span id="ruedas"></span>
+                    <div class="speedometer__text" >0 km/h</div>
                 </div>
                 <div class="temperature">
                     <div class="temperature__progress"></div>
@@ -57,15 +60,15 @@
                 <!-- Variable 3: red -->
                 <p>
                     <img src="../static/imge/4.png" alt="Signal Icon">
-                    <span class="sensor-value" id="signalQuality"></span>
-                    <span class="sensor-units">%</span>
+                    <span class="sensor-value" id="altitudeValue"></span>
+                    <span class="sensor-units">m</span>
                     <br>
                     <span class="sensor-description">Red 2.4 GHz</span>
                 </p>
                 <!-- Variable 4: Humedad -->
                 <p>
                     <img src="../static/imge/5.png" alt="Humidity Icon">
-                    <span class="sensor-value" id="humidityValue"></span>
+                    <span class="sensor-value" id="gasValue"></span>
                     <span class="sensor-units">%</span>
                     <br>
                     <span class="sensor-description">Humidity Level</span>
@@ -73,7 +76,7 @@
                   <!-- Variable 5: Inclinacion -->
                 <p>
                     <img src="../static/imge/3.png" alt="Inclinacion Icon">
-                    <span class="sensor-value" id="inclinacionValue"></span>
+                    <span class="sensor-value" id="ledValue"></span>
                     <span class="sensor-units">°</span>
                     <br>
                     <span class="sensor-description">Inclination</span>
@@ -81,7 +84,7 @@
                 <!-- Variable 6: Posicion -->
                 <p>
                     <img src="../static/imge/2.png" alt="Position Icon">
-                    <span class="sensor-value" id="positionValue"></span>
+                    <span class="sensor-value" id="distanceValue"></span>
                     <span class="sensor-units">m</span>
                     <br>
                     <span class="sensor-description">Position</span>
