@@ -2,6 +2,7 @@ from flask import Flask, render_template, Response, request, jsonify
 import cv2
 import os
 import numpy as np
+import time
 import mysql.connector
 from mysql.connector import Error
 from flask_socketio import SocketIO, emit
@@ -54,6 +55,28 @@ def get_db_connectionAU():
         print(f"Error connecting to MySQL: {e}")
         return None
 
+def insert_led_status(led_status):
+    mydb_senrobert = get_db_connectionAU()
+    if mydb_senrobert:
+        cursor = mydb_senrobert.cursor()
+        sql = """INSERT INTO sensores (led) VALUES (%s)"""
+        val = (led_status,)
+        cursor.execute(sql, val)
+        mydb_senrobert.commit()
+        cursor.close()
+        mydb_senrobert.close()
+
+def insert_direction_speed(direction, speed):
+    connection = get_db_connection()
+    if connection:
+        cursor = connection.cursor()
+        sql = """INSERT INTO velocidades (direccion, ruedas) VALUES (%s, %s)"""
+        val = (direction, speed)
+        cursor.execute(sql, val)
+        connection.commit()
+        cursor.close()
+        connection.close()
+
 def gen_frames():
     previous_led = 0  # Para almacenar el valor anterior de LED
     while True:
@@ -69,28 +92,43 @@ def gen_frames():
             for (x, y, w, h) in faces:
                 cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
                 cv2.putText(frame, 'Sub normal detectado', (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2, cv2.LINE_AA)
-
+            
             # Detectar los códigos ArUco
             corners, ids, rejectedImgPoints = cv2.aruco.detectMarkers(frame, dictionary, parameters=parameters)
             corners_ent = np.int64(corners)
             cv2.polylines(frame, corners_ent, True, (0, 0, 255), 5)
             proporcion_cm = 0
-
+            
             if corners_ent.any():
+                print('Se detecto el aruco')
+                #led[0] = 0
+                #insert_direction_speed('w','15')
                 perimetro_aruco = cv2.arcLength(corners_ent[0], True)
                 proporcion_cm = perimetro_aruco / 16
                 print(proporcion_cm)
                 cv2.putText(frame, f'Proporcion: {proporcion_cm:.2f} cm', (corners_ent[0][0][0][0], corners_ent[0][0][0][1] - 20),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA)             
-
-            if proporcion_cm > 80:
-                led[0] = 0
             else:
-                led[0] = 1
+                print('no se detectó aruco')
+                #led[0] = 1
 
-            # Emitir el valor de LED solo si ha cambiado
+            if proporcion_cm >= 80:
+                print('se va a detener rover')
+                # contador=0
+                # while(contador<=3000):
+                #     contador=contador+1
+                time.sleep(10)
+                print('se detuvo rover')
+
+                #insert_direction_speed('p','0')
+            else:
+                print('rover sigue avanzando')
+                #insert_direction_speed('w','15')
+
+            # Emitir el valor de LED solo si ha cambiado y guardar en la base de datos
             if led[0] != previous_led:
                 socketio.emit('led_status', {'led': led[0]})
+                insert_led_status(led[0])  # Guardar el valor del LED en la base de datos
                 previous_led = led[0]
 
             # Dibujar los códigos ArUco detectados en el frame
@@ -132,15 +170,7 @@ def receive_data():
         cursor.close()
         connection.close()
 
-    mydb_senrobert = get_db_connectionAU()
-    if mydb_senrobert:
-        cursor = mydb_senrobert.cursor()
-        sql = """INSERT INTO sensores (led) VALUES (%s)"""
-        val = (led[0],)
-        cursor.execute(sql, val)
-        mydb_senrobert.commit()
-        cursor.close()
-        mydb_senrobert.close()
+    insert_led_status(led[0])  # Guardar el valor del LED en la base de datos
 
     return jsonify({'message': 'Datos recibidos correctamente'})
 

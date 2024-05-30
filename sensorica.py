@@ -26,8 +26,6 @@ except serial.SerialException as e:
     conexion.close()
     exit(1)
 
-# Variables para almacenar los datos de los sensores
-
 # Ignora las primeras 10 líneas (mensajes del ESP32)
 for _ in range(10):
     ser.readline()  # Lee y descarta cada línea
@@ -40,15 +38,15 @@ try:
             cursor.execute("SELECT led FROM sensores ORDER BY id DESC LIMIT 1")
             result = cursor.fetchone()
             if result:
-                led = 2
-                ser.write(led.encode())
+                led = result[0]
+                ser.write(str(led).encode())
                 print(f"Valor de led obtenido de la base de datos: {led}")
             else:
                 led = 1  # Valor por defecto en caso de no encontrar registros
                 print("No se encontraron registros en la base de datos. Usando valor por defecto para led.")
         except mysql.connector.Error as err:
             print(f"Error al leer valor de led desde la base de datos: {err}")
-            led = 2  # Valor por defecto en caso de error
+            led = 1  # Valor por defecto en caso de error
             print("Usando valor por defecto para led.")
 
         # Leer datos del puerto serial
@@ -57,10 +55,10 @@ try:
         except serial.SerialException as e:
             print(f"Error leyendo del puerto serial: {e}")
             break
-        
+
         # Espera un segundo antes de enviar el siguiente dato
         time.sleep(1)
-        
+
         # Divide los datos en valores individuales
         data_split = data.split(";")
         if len(data_split) == 5:
@@ -71,8 +69,8 @@ try:
                 altitud = float(data_split[2])
                 presion = float(data_split[3])
                 distancia = float(data_split[4])
-                lat = 7
-                lon = 8
+                lat = 7  # Ajusta según tus necesidades
+                lon = 8  # Ajusta según tus necesidades
                 
                 insertar = "INSERT INTO sensores (temperatura, presion, altitud, gas, distancia, led, lat, lon) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
                 valores = (temperatura, presion, altitud, gas, distancia, led, lat, lon)
@@ -84,7 +82,7 @@ try:
                 print(f"Error convirtiendo los datos: {e}")
             except mysql.connector.Error as err:
                 print(f"Error insertando datos en la base de datos: {err}")
-        
+
         # Retraso entre lecturas
         time.sleep(1)
 finally:
