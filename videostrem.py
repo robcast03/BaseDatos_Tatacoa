@@ -72,27 +72,26 @@ def gen_frames():
 
             # Detectar los códigos ArUco
             corners, ids, rejectedImgPoints = cv2.aruco.detectMarkers(frame, dictionary, parameters=parameters)
-            if len(corners) > 0:
-                corners_ent = np.int64(corners)
-                cv2.polylines(frame, corners_ent, True, (0, 0, 255), 5)
-                proporcion_cm = 0
+            corners_ent = np.int64(corners)
+            cv2.polylines(frame, corners_ent, True, (0, 0, 255), 5)
+            proporcion_cm = 0
 
-                if corners_ent.any():
-                    perimetro_aruco = cv2.arcLength(corners_ent[0], True)
-                    proporcion_cm = perimetro_aruco / 16
-                    print(proporcion_cm)
-                    cv2.putText(frame, f'Proporcion: {proporcion_cm:.2f} cm', (corners_ent[0][0][0][0], corners_ent[0][0][0][1] - 20),
-                                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA)             
+            if corners_ent.any():
+                perimetro_aruco = cv2.arcLength(corners_ent[0], True)
+                proporcion_cm = perimetro_aruco / 16
+                print(proporcion_cm)
+                cv2.putText(frame, f'Proporcion: {proporcion_cm:.2f} cm', (corners_ent[0][0][0][0], corners_ent[0][0][0][1] - 20),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA)             
 
-                if proporcion_cm > 100:
-                    led[0] = 1
-                else:
-                    led[0] = 0
+            if proporcion_cm > 80:
+                led[0] = 0
+            else:
+                led[0] = 1
 
-                # Emitir el valor de LED solo si ha cambiado
-                if led[0] != previous_led:
-                    socketio.emit('led_status', {'led': led[0]})
-                    previous_led = led[0]
+            # Emitir el valor de LED solo si ha cambiado
+            if led[0] != previous_led:
+                socketio.emit('led_status', {'led': led[0]})
+                previous_led = led[0]
 
             # Dibujar los códigos ArUco detectados en el frame
             cv2.aruco.drawDetectedMarkers(frame, corners, ids)
