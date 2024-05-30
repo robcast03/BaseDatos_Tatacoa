@@ -13,8 +13,8 @@ socketio = SocketIO(app)
 
 # Inicializar la cámara
 camera = cv2.VideoCapture(0)
-camera.set(cv2.CAP_PROP_FRAME_WIDTH, 680)
-camera.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+camera.set(cv2.CAP_PROP_FRAME_WIDTH, 1080)
+camera.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
 
 # Definir los parámetros para la detección de códigos ArUco
 dictionary = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_250)
@@ -78,7 +78,7 @@ def insert_direction_speed(direction, speed):
         connection.close()
 
 def gen_frames():
-    previous_led = 0  # Para almacenar el valor anterior de LED
+    rover_stopped = False  # Estado inicial del rover
     while True:
         success, frame = camera.read()  # Leer el frame de la cámara
         if not success:
@@ -92,44 +92,41 @@ def gen_frames():
             for (x, y, w, h) in faces:
                 cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
                 cv2.putText(frame, 'Sub normal detectado', (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2, cv2.LINE_AA)
-            
+
             # Detectar los códigos ArUco
             corners, ids, rejectedImgPoints = cv2.aruco.detectMarkers(frame, dictionary, parameters=parameters)
             corners_ent = np.int64(corners)
             cv2.polylines(frame, corners_ent, True, (0, 0, 255), 5)
             proporcion_cm = 0
-            
+
             if corners_ent.any():
                 print('Se detecto el aruco')
-                #led[0] = 0
-                #insert_direction_speed('w','15')
                 perimetro_aruco = cv2.arcLength(corners_ent[0], True)
                 proporcion_cm = perimetro_aruco / 16
-                print(proporcion_cm)
-                cv2.putText(frame, f'Proporcion: {proporcion_cm:.2f} cm', (corners_ent[0][0][0][0], corners_ent[0][0][0][1] - 20),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA)             
+                
+                if proporcion_cm >= 15:
+                    led[0] = 0
+                    insert_direction_speed('w', '15')
+                    print(proporcion_cm)
+                    cv2.putText(frame, f'Proporcion: {proporcion_cm:.2f} cm', (corners_ent[0][0][0][0], corners_ent[0][0][0][1] - 20),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA)
+                    if proporcion_cm >= 80:
+                        print('se va a detener rover')
+                        time.sleep(10)
+                        print('se detuvo rover')
+                        insert_direction_speed('p', '0')
+                    else:
+                        print('rover sigue avanzando')
+                    
+                else:
+                    print('Aruco en la V')
             else:
                 print('no se detectó aruco')
-                #led[0] = 1
+                led[0] = 1
 
-            if proporcion_cm >= 80:
-                print('se va a detener rover')
-                # contador=0
-                # while(contador<=3000):
-                #     contador=contador+1
-                time.sleep(10)
-                print('se detuvo rover')
-
-                #insert_direction_speed('p','0')
-            else:
-                print('rover sigue avanzando')
-                #insert_direction_speed('w','15')
-
-            # Emitir el valor de LED solo si ha cambiado y guardar en la base de datos
-            if led[0] != previous_led:
-                socketio.emit('led_status', {'led': led[0]})
-                insert_led_status(led[0])  # Guardar el valor del LED en la base de datos
-                previous_led = led[0]
+            # Emitir el valor de LED en cada iteración del bucle
+            socketio.emit('led_status', {'led': led[0]})
+            insert_led_status(led[0])  # Guardar el valor del LED en la base de datos en cada iteración
 
             # Dibujar los códigos ArUco detectados en el frame
             cv2.aruco.drawDetectedMarkers(frame, corners, ids)
@@ -140,6 +137,7 @@ def gen_frames():
 
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
 
 @app.route('/')
 def index():

@@ -39,7 +39,6 @@ try:
             result = cursor.fetchone()
             if result:
                 led = result[0]
-                ser.write(str(led).encode())
                 print(f"Valor de led obtenido de la base de datos: {led}")
             else:
                 led = 1  # Valor por defecto en caso de no encontrar registros
